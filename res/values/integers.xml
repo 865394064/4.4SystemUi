@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>   
+    <integer name="zzzz_calendar_weak_text_size">9</integer>
+    <integer name="zzzz_calendar_weak_date_size">36</integer>
+     <integer name="search_item_content_textsize">18</integer>
+</resources>

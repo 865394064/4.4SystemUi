@@ -1,0 +1,309 @@
+/*
+ * Copyright (C) 2012 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.android.systemui.statusbar.phone;
+
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Typeface;
+import android.text.TextUtils;
+import android.text.format.DateFormat;
+import android.util.AttributeSet;
+import java.util.Calendar;//added by xss for ios10
+import java.util.Locale;//added by xss for ios10
+import android.util.Log;
+import android.util.Slog;
+import android.view.View;
+import android.widget.GridLayout;
+import android.widget.TextView;
+
+import com.android.internal.R;
+import com.android.internal.widget.LockPatternUtils;
+import android.graphics.Typeface;//added by xss for ios10
+import android.os.Handler;//added by xss for ios10
+
+import java.util.Date;
+import android.graphics.Color;//added by lzp for bug [2582]
+import com.hskj.iphone.view.IphoneLunar;//added by xss for ios10 20170214
+
+public class Clock_Calendar extends GridLayout {
+    private static final boolean DEBUG = false;//KeyguardViewMediator.DEBUG;
+    private static final String TAG = "Clock_Calendar";
+
+    public static final int LOCK_ICON = 0; // R.drawable.ic_lock_idle_lock;
+    public static final int ALARM_ICON = com.android.internal.R.drawable.ic_lock_idle_alarm;
+    public static final int CHARGING_ICON = 0; //R.drawable.ic_lock_idle_charging;
+    public static final int BATTERY_LOW_ICON = 0; //R.drawable.ic_lock_idle_low_battery;
+
+    private CharSequence mDateFormatString;
+    private LockPatternUtils mLockPatternUtils;
+
+    private TextView mDateText;//modified by xss for ios10
+    private TextView mAlarmStatusView;
+    private DownClock mClockView;
+    private TextView mKeyguardMessageArea;//added by lzp for bug [2582]
+     private TextView mLunarDateView,mBatteryText;//added by xss for ios10 
+    private View mLunarView,mBatteryView,mDateView,mDateAndLunarView;//added by xss for ios10 
+
+    private KeyguardUpdateMonitorCallback mInfoCallback = new KeyguardUpdateMonitorCallback() {
+
+        @Override
+        public void onTimeChanged() {
+            refresh();
+        }
+
+        @Override
+        void onKeyguardVisibilityChanged(boolean showing) {
+            if (showing) {
+                if (DEBUG) Slog.v(TAG, "refresh statusview showing:" + showing);
+                refresh();
+            }
+        };
+    };
+
+    public Clock_Calendar(Context context) {
+        this(context, null, 0);
+    }
+
+    public Clock_Calendar(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public Clock_Calendar(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        Resources res = getContext().getResources();
+		//changed by wang 20131007 from 'abbrev_wday_month_day_no_year' to 'full_wday_month_day_no_year'
+        mDateFormatString =
+                res.getText(com.android.internal.R.string.full_wday_month_day_no_year);
+        mDateText = (TextView) findViewById(R.id.date);//modified by xss for ios10
+        mAlarmStatusView = (TextView) findViewById(R.id.alarm_status);
+        mClockView = (DownClock) findViewById(R.id.clock_view);
+	 /*Begin:added by xss for ios10*/
+	 mDateAndLunarView = (View)findViewById(R.id.date_and_lunar_view);
+	 mDateView = (View)findViewById(R.id.keyguard_status_area_id);
+ 	 mClockText = (TextView) findViewById(R.id.clock_text);	
+	 //mClockText.setTypeface(Typeface.createFromFile("/system/fonts/IphoneNumber.ttf"));//added by lzp
+	 mLunarDateView = (TextView) findViewById(R.id.lunar_view);
+	 mLunarView = (View) findViewById(R.id.keyguard_status_area_lunar);
+	 mLunarView.setVisibility(isZh(getContext()) ? View.VISIBLE : View.GONE);
+        mBatteryView = (View) findViewById(R.id.keyguard_status_area_battery);
+	 mBatteryText= (TextView) findViewById(R.id.battery_text);
+	 /*End:added by xss for ios10*/		
+        mLockPatternUtils = new LockPatternUtils(getContext());
+
+        // Use custom font in mDateView
+        //mDateText.setTypeface(Typeface.SANS_SERIF, Typeface.NORMAL);//modified by xss for ios10 from BOLD
+
+	mKeyguardMessageArea = (TextView) findViewById(R.id.keyguard_message_area);//added by lzp for bug [2582]
+        // Required to get Marquee to work.
+        final View marqueeViews[] = { mDateView, mAlarmStatusView };
+        for (int i = 0; i < marqueeViews.length; i++) {
+            View v = marqueeViews[i];
+            if (v == null) {
+                throw new RuntimeException("Can't find widget at index " + i);
+            }
+            v.setSelected(true);
+        }
+        refresh();
+    }
+
+    protected void refresh() {
+        mClockView.updateTime();
+        refreshDate();
+        refreshAlarmStatus(); // might as well
+		 /*Begin:added by xss for ios10*/	
+		final Calendar mCalendar = Calendar.getInstance(); 
+		IphoneLunar lunar = new IphoneLunar(mCalendar);//modified by xss for ios10 20170214
+		Log.i(TAG,"refreshTime()-----lunar.toString()="+lunar.toString());
+		mLunarDateView.setText(lunar.toString());
+		mLunarView.setVisibility(isZh(getContext())&& !batteryViewsShow? View.VISIBLE : View.GONE);
+		 /*End:added by xss for ios10*/	
+    }
+
+    /**Begin: added by lzp for bug [2582] **/ 
+    public void setWhiteTheme(boolean isWhiteTheme) {
+	final int textColor = (isWhiteTheme ? Color.WHITE:0xff000000);//657179
+        if(mDateText != null)//modified by xss for ios10
+		mDateText.setTextColor(textColor);//modified by xss for ios10
+	if(mAlarmStatusView != null)
+		mAlarmStatusView.setTextColor(textColor);
+	if(mKeyguardMessageArea != null)
+		mKeyguardMessageArea.setTextColor(textColor);
+	if(mClockView != null)
+		mClockView.setWhiteTheme(isWhiteTheme);
+	   if(mLunarDateView!=null)mLunarDateView.setTextColor(textColor);//added by xss for ios10
+	   if(mBatteryText!=null)mBatteryText.setTextColor(textColor);//added by xss for ios10	
+    }
+    /**End: added by lzp for bug [2582] **/
+
+    void refreshAlarmStatus() {
+        // Update Alarm status
+        String nextAlarm = mLockPatternUtils.getNextAlarm();
+        if (!TextUtils.isEmpty(nextAlarm)) {
+            maybeSetUpperCaseText(mAlarmStatusView, nextAlarm);
+            mAlarmStatusView.setCompoundDrawablesWithIntrinsicBounds(ALARM_ICON, 0, 0, 0);
+            mAlarmStatusView.setVisibility(View.VISIBLE);
+        } else {
+            mAlarmStatusView.setVisibility(View.GONE);
+        }
+		mAlarmStatusView.setVisibility(View.GONE);//added by wang 20131029 always hide alarm status
+    }
+
+    void refreshDate() {
+        /*Begin://added by xss for ios10 unlock date	*/
+		 String date = DateFormat.format(mDateFormatString, new Date()).toString();
+		 /*if(isEn(getContext())){
+	              String[] date1 = date.split(", ");
+	              String[] date2 = date1[1].split(" ");
+		       date = date1[0]+", "+date2[1]+" "+date2[0];
+		 }*/
+               if(isZh(getContext()))date = date.replace(" ","");   
+	        if(DEBUG)Log.i(TAG, "ApplicationPreview  showAppWidget() date=="+date+"   date.indexOf(,)="+date.indexOf(","));
+	        String  day = getContext().getResources().getString(R.string.date_day);//added by xss for ios10
+	        date = date.replace(day,day+" "); 
+		 mDateText.setText(date);
+		/* End://added by xss for ios10 unlock date*/
+		
+        //maybeSetUpperCaseText(mDateText, DateFormat.format(mDateFormatString, new Date()));
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        KeyguardUpdateMonitor.getInstance(getContext()).registerCallback(mInfoCallback);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        KeyguardUpdateMonitor.getInstance(getContext()).removeCallback(mInfoCallback);
+    }
+
+    public int getAppWidgetId() {
+        return LockPatternUtils.ID_DEFAULT_STATUS_WIDGET;
+    }
+
+    private void maybeSetUpperCaseText(TextView textView, CharSequence text) {
+        if (KeyguardViewManager.USE_UPPER_CASE
+                && textView.getId() != R.id.owner_info) { // currently only required for date view
+            textView.setText(text != null ? text.toString().toUpperCase() : null);
+        } else {
+            textView.setText(text);
+        }
+    }
+    
+    /*
+     * M: For CR ALPS00333114
+     * 
+     * We need update updateStatusLines when dialog dismiss 
+     * which is in font of lock screen.
+     * 
+     * @see android.view.View#onWindowFocusChanged(boolean)
+     */
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        if (hasWindowFocus) {
+            refresh();
+        }
+    }
+    /*Begin:added by xss for ios 10*/
+     private TextView mClockText;
+     private boolean batteryViewsShow = false;	 
+     public View getClockText(){
+             return mClockText;
+     }
+     public View getDateView(){
+             return mDateText;//modified by xss for ios10
+     }
+     public View getLunarDateView(){
+             return mLunarDateView;
+     }
+		 
+     public static boolean isZh(Context context) {  
+	    Locale locale = context.getResources().getConfiguration().locale;  
+	    String language = locale.getLanguage();  
+	    if (language.endsWith("zh"))  
+	        return true;  
+	    else  
+	        return false;  
+     }  
+
+    public void setBatteryText(String text){// added by xss for ios10 battery
+           if(mBatteryText!=null)mBatteryText.setText(text);
+    }
+
+     public View getBatteryText(){// added by xss for ios10 battery
+            return mBatteryText;
+     }
+
+     public void showBatteryView(boolean show){// added by xss for ios10 battery
+	     if(DEBUG)Log.i(TAG,"showBatteryView() 1111111111111  show="+show);
+	     batteryViewsShow = show;
+	     if(show){
+                   mDateAndLunarView.setVisibility(View.GONE);
+		     mBatteryView.setVisibility(View.VISIBLE);
+		     if(DEBUG)Log.i(TAG,"showBatteryView() 22222222222222 show="+show);	 
+	     }else{
+                    mDateAndLunarView.setVisibility(View.VISIBLE);
+		     mLunarView.setVisibility(isZh(getContext())? View.VISIBLE : View.GONE);
+		     mBatteryView.setVisibility(View.GONE);  
+	     } 	 
+             if(DEBUG)Log.i(TAG,"showBatteryView() 3333333 show="+show);
+ 	     	 
+     }
+
+     public void delayHideBatteryView(boolean inChargeMode){// added by xss for ios10 battery
+	     if(DEBUG)Log.i(TAG,"delayHideBatteryView()    inChargeMode="+inChargeMode);
+	     if(inChargeMode){	 
+		     mDateAndLunarView.setVisibility(View.GONE);
+		     mBatteryView.setVisibility(View.VISIBLE);	 
+		     batteryViewHandler.removeCallbacks(batteryViewRunnable);
+		     batteryViewHandler.postDelayed(batteryViewRunnable, 2000);
+	     }else{
+                    mDateAndLunarView.setVisibility(View.VISIBLE);
+		     mLunarView.setVisibility(isZh(getContext())? View.VISIBLE : View.GONE);			
+		     mBatteryView.setVisibility(View.GONE);
+		     batteryViewsShow = false;		 
+	     }
+     }	 
+
+     Handler batteryViewHandler= new Handler();// added by xss for ios10 battery
+	Runnable batteryViewRunnable=new Runnable() { // added by xss for ios10 battery
+		
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			 if(DEBUG)Log.i(TAG,"myRunnable() battery view is show    isZh(getContext())="+isZh(getContext()));			
+			 mDateAndLunarView.setVisibility(View.VISIBLE);
+			 mLunarView.setVisibility(isZh(getContext())? View.VISIBLE : View.GONE);	 
+		        mBatteryView.setVisibility(View.GONE);
+			 batteryViewsShow = false;	
+		}
+	};
+	/*Begin:added by xss for ios10 date*/
+	public static boolean isEn(Context context) {  
+	    return context.getResources().getConfiguration().locale.getCountry().equals("UK")||
+	    context.getResources().getConfiguration().locale.getCountry().equals("US");
+	}
+	/*end:added by xss for ios10 date*/ 
+    /*End:added by xss for ios 10*/	
+}

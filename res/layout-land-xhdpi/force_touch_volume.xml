@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/volume_control_force_touch_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:orientation="horizontal"
+    android:visibility="gone"
+   >
+   <ImageView
+      android:id="@+id/force_touch_volume_values"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true"
+      android:layout_marginLeft="110dp"
+      android:src="@drawable/music_volume"
+      />
+   <com.android.systemui.statusbar.phone.VerticalSeekBar
+      android:id="@+id/force_touch_volume_seek_bar"
+      android:layout_width="110dp"
+      android:layout_height="300dp"
+      android:layout_centerInParent="true"
+      android:minHeight="110dp"
+      android:maxHeight="110dp"
+      android:padding="0dp"
+      android:thumb="@null"
+      android:progressDrawable="@drawable/force_touch_vertical_seekbar_progress"
+      android:progress="20"
+      android:max="100"
+      android:paddingLeft="1dp"
+      android:paddingRight="1dp"
+      android:thumbOffset="1dp"/>     	 
+</RelativeLayout>

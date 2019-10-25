@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2014 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License
+  -->
+
+<!-- Extends RelativeLayout -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui"
+    android:id="@+id/bottom_panel_status_bar_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/status_bar_header_height_keyguard"
+    android:baselineAligned="false"
+    >
+    
+    <LinearLayout
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_alignParentLeft="true"
+	android:gravity="center_vertical"
+	android:orientation="horizontal">
+       <include 
+            layout="@layout/signal_cluster_view_right"
+	        android:id="@+id/bottom_panel_status_bar_signal_cluster"
+	        android:layout_width="wrap_content"
+	        android:layout_height="@dimen/status_bar_header_height_keyguard"
+	        android:layout_marginLeft="@dimen/signal_cluster_margin_start"
+	        />    
+    </LinearLayout>
+	<LinearLayout
+		android:id="@+id/signal_battery_cluster"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingLeft="2dp"
+		android:orientation="horizontal"
+		android:layout_alignParentRight="true"
+		android:gravity="center_vertical"
+	>
+		<TextView
+			android:id="@+id/percentage"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_marginTop="3dp"
+			android:visibility = "gone"
+			android:paddingLeft="2dip"
+			android:textSize="12sp"
+			android:textColor="@android:color/white"
+		/>
+		<FrameLayout
+			android:id="@+id/battery_fram"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_marginTop = "3dp"
+			android:layout_marginRight = "10dp">
+			<ImageView
+				android:id="@+id/battery"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:paddingLeft="3dip"
+				android:paddingTop="1dp"
+				android:layout_marginTop="3dp"
+			/>
+			<ImageView
+				android:id="@+id/charging"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:src="@drawable/battery_charging_white"
+				android:paddingLeft="1dip"
+				android:paddingTop="1dp"
+				android:layout_marginLeft="8dp"
+				android:visibility="gone"
+			/>
+		</FrameLayout>
+		<View
+			android:layout_height="fill_parent"
+			android:layout_width="4dp"
+			android:visibility="invisible"
+		/>
+		<ImageView
+			android:id="@+id/landsView"
+			android:layout_height="fill_parent"
+			android:layout_width="93dip"
+			android:paddingRight="6dip"
+			android:visibility="gone"
+		/>
+	</LinearLayout>
+	<LinearLayout
+	android:layout_width="wrap_content"
+	android:layout_height="@dimen/status_bar_header_height_keyguard"
+	android:layout_alignParentRight="true"
+	android:gravity="center_vertical"
+	android:orientation="horizontal">
+	    <LinearLayout
+	        android:id="@+id/bottom_panel_status_bar_statusIcons"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="4dip"
+	        android:gravity="bottom"
+	        android:orientation="horizontal"/>
+	    <include layout="@layout/bottom_panel_status_bar_system_icons" />
+    </LinearLayout>	    
+    
+
+</RelativeLayout>

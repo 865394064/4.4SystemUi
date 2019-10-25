@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/colors.xml
+**
+** Copyright 2012, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    
+    <array name="navbar_search_targets">
+        <item>@null</item>
+        <item>@*android:drawable/ic_action_assist_generic</item>
+        <item>@null</item>
+        <item>@null</item>
+    </array>
+
+    <array name="navbar_search_target_descriptions">
+        <item>@null</item>
+        <item>@*android:string/description_target_search</item>
+        <item>@null</item>
+        <item>@null</item>
+    </array>
+
+    <array name="navbar_search_direction_descriptions">
+        <item>@null</item>
+        <item>@*android:string/description_direction_up</item>
+        <item>@null</item>
+        <item>@null</item>
+    </array>
+
+   <!--Begin:added by xss for ios10-->
+    <string-array name="strDayOfWeek"> 
+ 	<item>@string/iphonememo_tv_sunday</item>
+        <item>@string/iphonememo_tv_monday</item>
+	<item>@string/iphonememo_tv_tuesday</item>
+	<item>@string/iphonememo_tv_wednesday</item>
+	<item>@string/iphonememo_tv_thursday</item>
+	<item>@string/iphonememo_tv_friday</item>
+	<item>@string/iphonememo_tv_saturday</item>
+    </string-array>
+    <string-array name="strDayOfWeekSb"> 
+ 	<item>@string/iphoneweather_tv_sunday</item>
+        <item>@string/iphoneweather_tv_monday</item>
+	<item>@string/iphoneweather_tv_tuesday</item>
+	<item>@string/iphoneweather_tv_wednesday</item>
+	<item>@string/iphoneweather_tv_thursday</item>
+	<item>@string/iphoneweather_tv_friday</item>
+	<item>@string/iphoneweather_tv_saturday</item>
+    </string-array>
+
+    <string-array name="arrayCitiesEn"> 
+    	<!--北京-->
+    	<item>BeijingChina(Beijing)</item>
+    	<!--上海-->
+	<item>ShanghaiChina(Shanghai)</item>
+        <!--天津-->
+	<item>TianjinChina(Tianjin)</item>
+	<!--重庆-->
+	<item>ChongqingChina(Chongqing)</item>
+	<!--沈阳-->
+	<item>"ShenyangChina(Liaoning)"</item>
+	<item>"DalianChina(Liaoning)"</item>
+	<item>"AnshanChina(Liaoning)"</item>
+	<item>"FushunChina(Liaoning)"</item>
+	<item>"JingzhouChina(Liaoning)"</item>
+	<item>"YingkouChina(Liaoning)"</item>
+	<item>"FuxinChina(Liaoning)"</item>
+	<item>"LiaoyangChina(Liaoning)"</item>
+	<item>"PanjinChina(Liaoning)"</item>
+	<item>"TielingChina(Liaoning)"</item>
+	<item>"ChaoyangChina(Liaoning)"</item>
+	<item>"HuludaoChina(Liaoning)"</item>
+	<item>"BenxiChina(Liaoning)"</item>
+	<item>"DandongChina(Liaoning)"</item>
+    	<!--吉林-->
+        <item>"ChangchunChina(Jilin)"</item>
+        <item>"JilinChina(Jilin)"</item>
+        <item>"BaichengChina(Jilin)"</item>
+        <item>"BaishanChina(Jilin)"</item>
+        <item>"TonghuaChina(Jilin)"</item>
+        <item>"SipingChina(Jilin)"</item>
+        <item>"LiaoyuanChina(Jilin)"</item>
+        <!--黑龙江-->
+ 	<item>"HarbinChina(Heilongjiang)"</item>
+        <item>"QiqiharChina(Heilongjiang)"</item>
+ 	<item>"HeiheChina(Heilongjiang)"</item>
+ 	<item>"YichunChina(Heilongjiang)"</item>
+ 	<item>"HegangChina(Heilongjiang)"</item>
+ 	<item>"JiamusiChina(Heilongjiang)"</item>
+ 	<item>"ShuangyashanChina(Heilongjiang)"</item>
+ 	<item>"BoliChina(Heilongjiang)"</item>
+ 	<item>"DaqingChina(Heilongjiang)"</item>
+ 	<item>"SuihuaChina(Heilongjiang)"</item>
+ 	<item>"QitaiheChina(Heilongjiang)"</item>
+ 	<item>"JixiChina(Heilongjiang)"</item>
+ 	<item>"MudanjiangChina(Heilongjiang)"</item>
+        <!--河北-->
+ 	<item>"ShijiazhuangChina(Hebei)"</item>
+ 	<item>"TangshanChina(Hebei)"</item>
+ 	<item>"BaodingChina(Hebei)"</item>
+ 	<item>"ChengdeChina(Hebei)"</item>
+ 	<item>"CangzhouChina(Hebei)"</item>
+ 	<item>"LangfangChina(Hebei)"</item>
+ 	<item>"HengshuiChina(Hebei)"</item>
+ 	<item>"XingtaiChina(Hebei)"</item>
+ 	<item>"ZhangjiakouChina(Hebei)"</item>
+ 	<item>"QinhuangdaoChina(Hebei)"</item> 
+ 	<!--河南-->
+ 	<item>"ZhengzhouChina(Henan)"</item>
+ 	<item>"LuoyangChina(Henan)"</item>
+ 	<item>"ShangqiuChina(Henan)"</item>
+ 	<item>"AnyangChina(Henan)"</item>
+ 	<item>"XinxiangChina(Henan)"</item>
+ 	<item>"XuchangChina(Henan)"</item>
+ 	<item>"PingdingshanChina(Henan)"</item>
+ 	<item>"XinyangChina(Henan)"</item>
+ 	<item>"NanyangChina(Henan)"</item>
+ 	<item>"KaifengChina(Henan)"</item>
+ 	<item>"JiaozuoChina(Henan)"</item>
+ 	<item>"HebiChina(Henan)"</item>
+ 	<item>"PuyangChina(Henan)"</item>
+ 	<item>"ZhoukouChina(Henan)"</item>
+ 	<item>"LuoheChina(Henan)"</item>
+ 	<item>"ZhumadianChina(Henan)"</item>
+ 	<item>"SanmenxiaChina(Henan)"</item>
+ 	<item>"JiyuanChina(Henan)"</item>
+     	<!--山东-->
+     	<item>"JinanChina(Shandong)"</item>
+	<item>"QingdaoChina(Shandong)"</item>
+	<item>"ZiboChina(Shandong)"</item>
+	<item>"ZaozhuangChina(Shandong)"</item>	
+	<item>"DongyingChina(Shandong)"</item>
+	<item>"YantaiChina(Shandong)"</item>
+	<item>"WeifangChina(Shandong)"</item>
+	<item>"Tai'anChina(Shandong)"</item>	
+	<item>"WeihaiChina(Shandong)"</item>
+	<item>"RizhaoChina(Shandong)"</item>
+	<item>"BinzhouChina(Shandong)"</item>
+	<item>"DezhouChina(Shandong)"</item>
+	<item>"LiaochengChina(Shandong)"</item>
+	<item>"LinyiChina(Shandong)"</item>
+	<item>"HezeChina(Shandong)"</item>
+	<item>"LaiwuChina(Shandong)"</item>
+	<item>"JiningChina(Shandong)"</item>
+	<!--山西-->
+	<item>"TaiyuanChina(Shanxi)"</item>
+	<item>"DatongChina(Shanxi)"</item>
+	<item>"YangquanChina(Shanxi)"</item>			
+	<item>"ChangzhiChina(Shanxi)"</item>
+	<item>"JinchengChina(Shanxi)"</item>
+	<item>"ShuozhouChina(Shanxi)"</item>
+	<item>"YunchengChina(Shanxi)"</item>
+	<item>"XinzhouChina(Shanxi)"</item>
+	<item>"linfenChina(Shanxi)"</item>
+	<!--内蒙古-->
+	<item>"hohhotChina(Nei Mongol (inner Mongolia))"</item>
+	<item>"BaotouChina(Nei Mongol (inner Mongolia))"</item>
+	<item>"WuhaiChina(Nei Mongol (inner Mongolia))"</item>
+	<item>"ChifengChina(Nei Mongol (inner Mongolia))"</item>
+	<item>"TongliaoChina(Nei Mongol (inner Mongolia))"</item>
+	<!--新疆-->
+	<item>"WulumuqiChina(Xinjiang)"</item>
+	<item>"TulufanChina(Xinjiang)"</item>
+	<item>"HamiChina(Xinjiang)"</item>
+	<item>"ChangjiChina(Xinjiang)"</item>
+	<item>"AkesuChina(Xinjiang)"</item>
+	<item>"KashiChina(Xinjiang)"</item>
+	<item>"TachengChina(Xinjiang)"</item>
+	<item>"ShiheziChina(Xinjiang)"</item>
+	<item>"WujiaquChina(Xinjiang)"</item>
+ 	<item>"YiliChinaChina(Xinjiang)"</item>
+ 	<item>"KelamayiChina(Xinjiang)"</item>
+	<!--甘肃-->
+	<item>"LanzhouChina(Gansu)"</item>
+	<item>"JiayuguanChina(Gansu)"</item>
+	<item>"JinchangChina(Gansu)"</item>
+	<item>"BaiyinChina(Gansu)"</item>
+	<item>"TianshuiChina(Gansu)"</item>
+	<item>"WuweiChina(Gansu)"</item>
+	<item>"ZhangyeChina(Gansu)"</item>
+	<item>"JiuquanChina(Gansu)"</item>
+	<item>"PingliangChina(Gansu)"</item>
+	<item>"QingyangChina(Gansu)"</item>
+	<item>"DingxiChina(Gansu)"</item>
+	<item>"LinxiaChina(Gansu)"</item>
+	<!--陕西-->
+	<item>"Xi'anChina(Shaanxi)"</item>
+	<item>"XianyangChina(Shaanxi)"</item>
+	<item>"YananChina(Shaanxi)"</item>
+	<item>"BaojiChina(Shaanxi)"</item>
+	<item>"ShangluoChina(Shaanxi)"</item>
+	<item>"AnkangChina(Shaanxi)"</item>
+	<item>"YulinChina(Shaanxi)"</item>
+	<item>"HanzhongChina(Shaanxi)"</item>
+	<item>"WeinanChina(Shaanxi)"</item>
+	<item>"TongchuanChina(Shaanxi)"</item>
+	<item>"HuashanChina(Shaanxi)"</item>
+	<!--宁夏-->
+	<item>"YinchuanChina(Ningxia (ningxia))"</item>
+	<item>"ZhongweiChina(Ningxia (ningxia))"</item>
+	<item>"WuzhongChina(Ningxia (ningxia))"</item>
+	<item>"ShizuishanChina(Ningxia (ningxia))"</item>
+	<item>"GuyuanChina(Ningxia (ningxia))"</item>
+	<!--西藏-->
+	<item>"LhasaChina(Xizang (tibet))"</item>
+	<item>"XigazeChina(Xizang (tibet))"</item>
+	<item>"QamdoChina(Xizang (tibet))"</item>
+	<item>"NyingchiChina(Xizang (tibet))"</item>
+	<item>"NagquChina(Xizang (tibet))"</item>
+	<!--青海-->
+	<item>"XiningChina(Qinghai)"</item>
+	<item>"YushuChina(Qinghai)"</item>
+	<item>"DelinghaChina(Qinghai)"</item>
+	<item>"HaiyanChina(Qinghai)"</item>
+	<!--四川-->
+	<item>"ChengduChina(Sichuan)"</item>
+	<item>"ZigongChina(Sichuan)"</item>
+	<item>"MianyangChina(Sichuan)"</item>
+	<item>"LuzhouChina(Sichuan)"</item>
+	<item>"YibinChina(Sichuan)"</item>
+	<item>"NeijiangChina(Sichuan)"</item>
+	<item>"ZiyangChina(Sichuan)"</item>
+	<item>"LeshanChina(Sichuan)"</item>
+	<item>"MeishanChina(Sichuan)"</item>
+	<item>"NanchongChina(Sichuan)"</item>
+	<item>"BazhongChina(Sichuan)"</item>
+	<item>"GuangyuanChina(Sichuan)"</item>
+	<item>"DeyangChina(Sichuan)"</item>
+	<item>"PanzhihuaChina(Sichuan)"</item>
+	<item>"GanziChina(Sichuan)"</item>
+	<item>"SuiningChina(Sichuan)"</item>
+	<item>"AbaChina(Sichuan)"</item>
+	<item>"YaanChina(Sichuan)"</item>
+	<item>"XichangChina(Sichuan)"</item>
+	<item>"KangdingChina(Sichuan)"</item>
+	<!--江苏-->
+	<item>"NanjingChina(Jiangsu)"</item>
+	<item>"WuxiChina(Jiangsu)"</item>
+	<item>"XuzhouChina(Jiangsu)"</item>
+	<item>"ChangzhouChina(Jiangsu)"</item>
+	<item>"SuzhouChina(Jiangsu)"</item>
+	<item>"NantongChina(Jiangsu)"</item>
+	<item>"LianyungangChina(Jiangsu)"</item>
+	<item>"YanchengChina(Jiangsu)"</item>
+	<item>"YangzhouChina(Jiangsu)"</item>
+	<item>"ZhenjiangChina(Jiangsu)"</item>
+	<item>"TaizhouChina(Jiangsu)"</item>
+	<item>"SuqianChina(Jiangsu)"</item>
+	<!--浙江-->
+	<item>"HangzhouChina(Zhejiang)"</item>
+	<item>"NingboChina(Zhejiang)"</item>
+	<item>"WenzhouChina(Zhejiang)"</item>
+	<item>"JiaxingChina(Zhejiang)"</item>
+	<item>"HuzhouChina(Zhejiang)"</item>
+	<item>"ShaoxingChina(Zhejiang)"</item>
+	<item>"JinhuaChina(Zhejiang)"</item>
+	<item>"HengzhouChina(Zhejiang)"</item>
+	<item>"ZhoushanChina(Zhejiang)"</item>
+	<item>"TaizhouChina(Zhejiang)"</item>
+	<item>"LishuiChina(Zhejiang)"</item>
+	<!--福建-->
+	<item>"FuzhouChina(Fujian)"</item>
+	<item>"XiamenChina(Fujian)"</item>
+	<item>"PutianChina(Fujian)"</item>
+	<item>"SanmingChina(Fujian)"</item>
+	<item>"QuanzhouChina(Fujian)"</item>
+	<item>"ZhangzhouChina(Fujian)"</item>
+	<item>"NanpingChina(Fujian)"</item>
+	<item>"LongyanChina(Fujian)"</item>
+	<item>"NingdeChina(Fujian)"</item>
+	<!--安徽-->
+	<item>"HefeiChina(Anhui)"</item>
+	<item>"BangbuChina(Anhui)"</item>
+	<item>"WuhuChina(Anhui)"</item>
+	<item>"HuainanChina(Anhui)"</item>
+	<item>"HuaibeiChina(Anhui)"</item>
+	<item>"TonglingChina(Anhui)"</item>
+	<item>"AnqingChina(Anhui)"</item>
+	<item>"HuangshanChina(Anhui)"</item>
+	<item>"FuyangChina(Anhui)"</item>
+	<item>"SuzhouChina(Anhui)"</item>
+	<item>"ChuzhouChina(Anhui)"</item>
+	<item>"LiuanChina(Anhui)"</item>
+	<item>"XuanchengChina(Anhui)"</item>
+	<item>"ChaohuChina(Anhui)"</item>
+	<item>"ChizhouChina(Anhui)"</item>
+	<item>"BozhouChina(Anhui)"</item>
+	<!--湖北 -->
+	<item>"WuhanChina(Hubei)"</item>
+        <item>"HuangshiChina(Hubei)"</item>
+	<item>"ShiyanChina(Hubei)"</item>
+	<item>"YichangChina(Hubei)"</item>
+	<item>"XiangfanChina(Hubei)"</item>
+	<item>"JingzhouChina(Hubei)"</item>
+	<item>"JingmenChina(Hubei)"</item>
+	<item>"EzhouChina(Hubei)"</item>
+	<item>"XiaoganChina(Hubei)"</item>
+	<item>"HuanggangChina(Hubei)"</item>
+	<item>"XianningChina(Hubei)"</item>
+	<item>"SuizhouChina(Hubei)"</item>
+	<item>"EnshiChina(Hubei)"</item>
+	<item>"XiantaoChina(Hubei)"</item>
+	<item>"QianjiangChina(Hubei)"</item>
+	<item>"ShennongjiaChina(Hubei)"</item>
+      	<!--江西-->
+        <item>"NanchangChina(Jiangxi)"</item>
+	<item>"JingdezhenChina(Jiangxi)"</item>
+        <item>"JiujiangChina(Jiangxi)"</item>
+	<item>"PingxiangChina(Jiangxi)"</item>
+	<item>"XinyuChina(Jiangxi)"</item>
+	<item>"YingtanChina(Jiangxi)"</item>
+	<item>"YichunChina(Jiangxi)"</item>
+	<item>"ShangraoChina(Jiangxi)"</item>
+	<item>"Ji'anChina(Jiangxi)"</item>
+        <item>"FuzhouChina(Jiangxi)"</item>
+        <!--湖南 -->
+        <item>"ChangshaChina(Hunan)"</item>
+ 	<item>"ZhuzhouChina(Hunan)"</item>
+        <item>"HengyangChina(Hunan)"</item>
+	<item>"ShaoyangChina(Hunan)"</item>
+	<item>"YueyangChina(Hunan)"</item>
+	<item>"ZhangjiajieChina(Hunan)"</item>
+        <item>"YiyangChina(Hunan)"</item>
+	<item>"ChangdeChina(Hunan)"</item>
+	<item>"LoudiChina(Hunan)"</item>
+	<item>"ChenzhouChina(Hunan)"</item>
+        <item>"YongzhouChina(Hunan)"</item>
+	<item>"HuaihuaChina(Hunan)"</item>
+	 <!--贵州-->
+        <item>"GuiyangChina(Guizhou)"</item>
+	<item>"LiupanshuiChina(Guizhou Sheng)"</item>
+	<item>"ZunyiChina(Guizhou)"</item>
+	<item>"AnshunChina(Guizhou)"</item>
+	<item>"TongrenChina(Guizhou)"</item>
+	<item>"BijieChina(Guizhou)"</item>
+	<item>"QianxiChina(Guizhou)"</item>
+	 <!--云南-->
+        <item>"KunmingChina(Yunnan)"</item>
+        <item>"QujingChina(Yunnan)"</item>
+        <item>"YuxiChina(Yunnan)"</item>
+        <item>"BaoshanChina(Yunnan)"</item>
+	<item>"ZhaotongChina(Yunnan)"</item>
+        <item>"LijiangChina(Yunnan)"</item>
+        <item>"Pu'erChina(Yunnan)"</item>
+        <item>"LincangChina(Yunnan)"</item>
+        <item>"ChuxiongChina(Yunnan)"</item>
+        <item>"DaliChina(Yunnan)"</item>
+        <item>"HongheChina(Yunnan)"</item>
+        <item>"WenshanChina(Yunnan)"</item>
+        <item>"NujiangChina(Xizang (tibet))"</item>
+        <!--广西-->
+        <item>"NanningChina(Guangxi)"</item>
+        <item>"LiuzhouChina(Guangxi)"</item>
+      	<item>"GuilinChina(Guangxi)"</item>
+      	<item>"WuzhouChina(Guangxi)"</item>
+	<item>"BeihaiChina(Guangxi)"</item>
+        <item>"QinzhouChina(Guangxi)"</item>
+      	<item>"GuigangChina(Guangxi)"</item>
+      	<item>"YulinChina(Guangxi)"</item>
+      	<item>"HechiChina(Guangxi)"</item>
+        <item>"LaibinChina(Guangxi)"</item>
+     	<!--广东-->
+        <item>"GuangzhouChina(Guangdong)"</item>
+        <item>"ShenzhenChina(Guangdong)"</item>
+        <item>"ZhuhaiChina(Guangdong)"</item>
+        <item>"ShantouChina(Guangdong)"</item>
+        <item>"ShaoguanChina(Guangdong)"</item>
+        <item>"FoshanChina(Guangdong)"</item>
+        <item>"JiangmenChina(Guangdong)"</item>
+        <item>"ZhanjiangChina(Guangdong)"</item>
+        <item>"MaomingChina(Guangdong)"</item>
+        <item>"ZhaoqingChina(Guangdong)"</item>
+        <item>"HuizhouChina(Guangdong)"</item>
+        <item>"MeizhouChina(Guangdong)"</item>
+        <item>"ShanweiChina(Guangdong)"</item>
+        <item>"HeyuanChina(Guangdong)"</item>
+        <item>"YangjiangChina(Guangdong)"</item>
+        <item>"QingyuanChina(Guangdong)"</item>
+        <item>"DongguanChina(Guangdong)"</item>
+        <item>"ZhongshanChina(Guangdong)"</item>
+        <item>"ChaozhouChina(Guangdong)"</item>
+        <item>"JieyangChina(Guangdong)"</item>
+        <item>"YunfuChina(Guangdong)"</item>
+        <!--海南-->
+        <item>"HaikouChina(Hainan)"</item>
+        <item>"SanyaChina(Hainan)"</item>
+        <item>"DanzhouChina(Hainan)"</item>
+        <item>"WuzhishanChina(Hainan)"</item>
+        <item>"WenchangChina(Hainan)"</item>
+        <item>"QionghaiChina(Hainan)"</item>
+        <item>"WanningChina(Hainan)"</item>
+        <item>"DongfangChina(Hainan)"</item>
+        <!--台湾-->
+ 	<item>"TaipeiTaiwan(T'ai-Wan)"</item>
+ 	<!--香港-->
+	<item>"Hong KongHong Kong"</item>
+	<!--澳门-->
+	<item>"MacauMacau"</item>
+    </string-array>
+    	
+     	
+    <string-array name="arrayCitiesCn"> 	
+        <!--北京-->
+    	<item>北京, 北京直辖市(中国)</item>
+    	<!--上海-->
+	<item>上海, 上海直辖市(中国)</item>
+    	<!--天津-->
+	<item>天津, 天津直辖市(中国)</item>
+	<!--重庆-->
+	<item>重庆, 重庆直辖市(中国)</item>
+    	<!--沈阳-->
+	<item>"沈阳, 辽宁省(中国)"</item>
+	<item>"大连, 辽宁省(中国)"</item>
+	<item>"鞍山, 辽宁省(中国)"</item>
+	<item>"抚顺, 辽宁省(中国)"</item>
+	<item>"锦州, 辽宁省(中国)"</item>
+	<item>"营口, 辽宁省(中国)"</item>
+	<item>"阜新, 辽宁省(中国)"</item>
+	<item>"辽阳, 辽宁省(中国)"</item>
+	<item>"盘锦, 辽宁省(中国)"</item>
+	<item>"铁岭, 辽宁省(中国)"</item>
+	<item>"朝阳, 辽宁省(中国)"</item>
+	<item>"葫芦岛, 辽宁省(中国)"</item>
+	<item>"本溪, 辽宁省(中国)"</item>
+	<item>"丹东, 辽宁省(中国)"</item>
+        <!--吉林 未找到:松原, 兴安盟, 延边朝鲜族自治州-->
+        <item>"长春, 吉林省(中国)"</item>
+        <item>"吉林, 吉林省(中国)"</item>
+        <item>"白城, 吉林省(中国)"</item>
+        <item>"白山, 吉林省(中国)"</item>
+        <item>"通化, 吉林省(中国)"</item>
+        <item>"四平, 吉林省(中国)"</item>
+        <item>"辽源, 吉林省(中国)"</item>
+         <!--黑龙江 未找到:大兴安岭林区-->
+ 	<item>"哈尔滨, 黑龙江省(中国)"</item>
+	<item>"齐齐哈尔, 黑龙江省(中国)"</item>
+ 	<item>"黑河, 黑龙江省(中国)"</item>
+	<item>"伊春, 黑龙江省(中国)"</item>
+	<item>"鹤岗, 黑龙江省(中国)"</item>
+	<item>"佳木斯, 黑龙江省(中国)"</item>
+	<item>"双鸭山, 黑龙江省(中国)"</item>
+	<item>"伯力, 黑龙江省(中国)"</item>
+	<item>"大庆, 黑龙江省(中国)"</item>
+	<item>"绥化, 黑龙江省(中国)"</item>
+	<item>"七台河, 黑龙江省(中国)"</item>
+	<item>"鸡西, 黑龙江省(中国)"</item>
+	<item>"牡丹江, 黑龙江省(中国)"</item>
+    	<!--河北 未找到:邯郸-->
+ 	<item>"石家庄, 河北省(中国)"</item>
+ 	<item>"唐山, 河北省(中国)"</item>
+ 	<item>"保定, 河北省(中国)"</item>
+ 	<item>"承德, 河北省(中国)"</item>
+ 	<item>"沧州, 河北省(中国)"</item>
+ 	<item>"廊坊, 河北省(中国)"</item>
+ 	<item>"衡水, 河北省(中国)"</item>
+ 	<item>"邢台, 河北省(中国)"</item>
+ 	<item>"张家口, 河北省(中国)"</item>
+ 	<item>"秦皇岛, 河北省(中国)"</item>
+ 	 <!--河南-->
+ 	<item>"郑州, 河南省(中国)"</item>
+ 	<item>"洛阳, 河南省(中国)"</item>
+ 	<item>"商丘, 河南省(中国)"</item>
+ 	<item>"安阳, 河南省(中国)"</item>
+ 	<item>"新乡, 河南省(中国)"</item>
+ 	<item>"许昌, 河南省(中国)"</item>
+ 	<item>"平顶山, 河南省(中国)"</item>
+ 	<item>"信阳, 河南省(中国)"</item>
+ 	<item>"南阳, 河南省(中国)"</item>
+ 	<item>"开封, 河南省(中国)"</item>
+ 	<item>"焦作, 河南省(中国)"</item>
+ 	<item>"鹤壁, 河南省(中国)"</item>
+ 	<item>"濮阳, 河南省(中国)"</item>
+	<item>"周口, 河南省(中国)"</item>
+	<item>"漯河, 河南省(中国)"</item>
+	<item>"驻马店, 河南省(中国)"</item>
+	<item>"三门峡, 河南省(中国)"</item>
+	<item>"济源, 河南省(中国)"</item>
+    	<!--山东-->
+    	<item>"济南, 山东省(中国)"</item>
+	<item>"青岛, 山东省(中国)"</item>
+	<item>"淄博, 山东省(中国)"</item>
+	<item>"枣庄, 山东省(中国)"</item>
+	<item>"东营, 山东省(中国)"</item>
+	<item>"烟台, 山东省(中国)"</item>
+	<item>"潍坊, 山东省(中国)"</item>
+	<item>"泰安, 山东省(中国)"</item>
+	<item>"威海, 山东省(中国)"</item>
+	<item>"日照, 山东省(中国)"</item>
+	<item>"滨州, 山东省(中国)"</item>
+	<item>"德州, 山东省(中国)"</item>	
+	<item>"聊城, 山东省(中国)"</item>
+	<item>"临沂, 山东省(中国)"</item>
+	<item>"菏泽, 山东省(中国)"</item>
+	<item>"莱芜, 山东省(中国)"</item>
+	<item>"济宁, 山东省(中国)"</item>
+	<!--山西 未找到:晋中, 吕梁-->
+	<item>"太原, 山西省(中国)"</item>
+	<item>"大同, 山西省(中国)"</item>
+	<item>"阳泉, 山西省(中国)"</item>
+	<item>"长治, 山西省(中国)"</item>
+	<item>"晋城, 山西省(中国)"</item>
+	<item>"朔州, 山西省(中国)"</item>
+	<item>"运城, 山西省(中国)"</item>
+	<item>"忻州, 山西省(中国)"</item>
+	<item>"临汾, 山西省(中国)"</item>
+	<!--内蒙古 未找到:鄂尔多斯市, 呼伦贝尔市, 巴彦淖尔市, 乌兰察布市, 兴安盟, 锡林郭勒盟, 阿拉善盟-->
+	<item>"呼和浩特, 内蒙古自治区(中国)"</item>
+	<item>"包头, 内蒙古自治区(中国)"</item>
+	<item>"乌海, 内蒙古自治区(中国)"</item>
+	<item>"赤峰, 内蒙古自治区(中国)"</item>
+	<item>"通辽, 内蒙古自治区(中国)"</item>
+	<!--新疆  未找到:博尔塔拉蒙古自治州, 巴音郭楞蒙古自治州
+					, 克孜勒苏柯尔克孜自治州, 和田地区, 阿勒泰地区-->
+	<item>"乌鲁木齐, 新疆维吾尔自治区(中国)"</item>
+	<item>"吐鲁番, 新疆维吾尔自治区(中国)"</item>
+	<item>"哈密地区, 新疆维吾尔自治区(中国)"</item>
+	<item>"昌吉回族自治州, 新疆维吾尔自治区(中国)"</item>
+	<item>"阿克苏地区, 新疆维吾尔自治区(中国)"</item>
+	<item>"喀什地区, 新疆维吾尔自治区(中国)"</item>
+	<item>"塔城地区, 新疆维吾尔自治区(中国)"</item>
+	<item>"石河子, 新疆维吾尔自治区(中国)"</item>
+	<item>"五家渠, 新疆维吾尔自治区(中国)"</item>
+	<item>"伊犁, 新疆维吾尔自治区(中国)"</item>
+        <item>"克拉玛依, 新疆维吾尔自治区(中国)"</item>
+	<!--甘肃 未找到:甘南, 陇南-->
+	<item>"兰州, 甘肃省(中国)"</item>
+	<item>"嘉峪关, 甘肃省(中国)"</item>
+	<item>"金昌, 甘肃省(中国)"</item>
+	<item>"白银, 甘肃省(中国)"</item>
+	<item>"天水, 甘肃省(中国)"</item>
+	<item>"武威, 甘肃省(中国)"</item>
+	<item>"张掖, 甘肃省(中国)"</item>
+	<item>"酒泉, 甘肃省(中国)"</item>
+	<item>"平凉, 甘肃省(中国)"</item>
+	<item>"庆阳, 甘肃省(中国)"</item>
+	<item>"定西, 甘肃省(中国)"</item>
+	<item>"临夏回族自治州, 甘肃省(中国)"</item>
+	<!--陕西--> 
+	<item>"西安, 陕西省(中国)"</item>
+	<item>"咸阳, 陕西省(中国)"</item>
+	<item>"延安, 陕西省(中国)"</item>
+	<item>"宝鸡, 陕西省(中国)"</item>
+	<item>"商洛, 陕西省(中国)"</item>
+	<item>"安康, 陕西省(中国)"</item>
+	<item>"榆林, 陕西省(中国)"</item>
+	<item>"汉中, 陕西省(中国)"</item>
+	<item>"渭南, 陕西省(中国)"</item>
+	<item>"铜川, 陕西省(中国)"</item>
+	<item>"华山, 陕西省(中国)"</item>
+	<!--宁夏-->
+	<item>"银川, 宁夏回族自治区(中国)"</item>
+	<item>"中卫, 宁夏回族自治区(中国)"</item>
+	<item>"吴忠, 宁夏回族自治区(中国)"</item>
+	<item>"石嘴山, 宁夏回族自治区(中国)"</item>
+	<item>"固原, 宁夏回族自治区(中国)"</item>
+	<!--西藏 未找到:山南, 阿里-->
+	<item>"拉萨, 西藏自治区(中国)"</item>
+	<item>"日喀则, 西藏自治区(中国)"</item>
+	<item>"昌都, 西藏自治区(中国)"</item>
+	<item>"林芝, 西藏自治区(中国)"</item>
+	<item>"那曲, 西藏自治区(中国)"</item>
+	<!--青海 未找到:海东, 海北, 海南, 果洛, 黄南, 海西-->
+	<item>"西宁, 青海省(中国)"</item>
+	<item>"玉树, 青海省(中国)"</item>
+	<item>"德令哈, 青海省(中国)"</item>
+	<item>"海晏, 青海省(中国)"</item>
+	<!--四川 未找到:凉山, 广安, 达州-->
+	<item>"成都, 四川省(中国)"</item>
+	<item>"自贡, 四川省(中国)"</item>
+	<item>"绵阳, 四川省(中国)"</item>
+	<item>"泸州, 四川省(中国)"</item>
+	<item>"宜宾, 四川省(中国)"</item>
+	<item>"内江, 四川省(中国)"</item>
+	<item>"资阳, 四川省(中国)"</item>
+	<item>"乐山, 四川省(中国)"</item>
+	<item>"眉山, 四川省(中国)"</item>
+	<item>"南充, 四川省(中国)"</item>
+	<item>"巴中, 四川省(中国)"</item>
+	<item>"广元, 四川省(中国)"</item>
+	<item>"德阳, 四川省(中国)"</item>
+	<item>"攀枝花, 四川省(中国)"</item>
+	<item>"甘孜, 四川省(中国)"</item>
+	<item>"遂宁, 四川省(中国)"</item>
+	<item>"阿坝, 四川省(中国)"</item>
+	<item>"雅安, 四川省(中国)"</item>
+	<item>"西昌, 四川省(中国)"</item>
+	<item>"康定, 四川省(中国)"</item>
+	<!--江苏 未找到:淮安-->
+	<item>"南京, 江苏省(中国)"</item>
+	<item>"无锡, 江苏省(中国)"</item>
+	<item>"徐州, 江苏省(中国)"</item>
+	<item>"常州, 江苏省(中国)"</item>
+	<item>"苏州, 江苏省(中国)"</item>
+	<item>"南通, 江苏省(中国)"</item>
+	<item>"连云港, 江苏省(中国)"</item>
+	<item>"盐城, 江苏省(中国)"</item>
+	<item>"扬州, 江苏省(中国)"</item>
+	<item>"镇江, 江苏省(中国)"</item>
+	<item>"泰州, 江苏省(中国)"</item>
+	<item>"宿迁, 江苏省(中国)"</item>
+	<!--浙江-->
+	<item>"杭州, 浙江省(中国)"</item>
+	<item>"宁波, 浙江省(中国)"</item>
+	<item>"温州, 浙江省(中国)"</item>
+	<item>"嘉兴, 浙江省(中国)"</item>
+	<item>"湖州, 浙江省(中国)"</item>
+	<item>"绍兴, 浙江省(中国)"</item>
+	<item>"金华, 浙江省(中国)"</item>
+	<item>"衢州, 浙江省(中国)"</item>
+	<item>"舟山, 浙江省(中国)"</item>
+	<item>"台州, 浙江省(中国)"</item>
+	<item>"丽水, 浙江省(中国)"</item>
+	<!--福建-->
+	<item>"福州, 福建省(中国)"</item>
+	<item>"厦门, 福建省(中国)"</item>
+	<item>"莆田, 福建省(中国)"</item>
+	<item>"三明, 福建省(中国)"</item>
+	<item>"泉州, 福建省(中国)"</item>
+	<item>"漳州, 福建省(中国)"</item>
+	<item>"南平, 福建省(中国)"</item>
+	<item>"龙岩, 福建省(中国)"</item>
+	<item>"宁德, 福建省(中国)"</item>	
+	<!--安徽 未找到:马鞍山-->
+	<item>"合肥, 安徽省(中国)"</item>
+	<item>"蚌埠, 安徽省(中国)"</item>
+	<item>"芜湖, 安徽省(中国)"</item>
+	<item>"淮南, 安徽省(中国)"</item>
+	<item>"淮北, 安徽省(中国)"</item>
+	<item>"铜陵, 安徽省(中国)"</item>
+	<item>"安庆, 安徽省(中国)"</item>
+	<item>"黄山, 安徽省(中国)"</item>
+	<item>"阜阳, 安徽省(中国)"</item>
+	<item>"宿州, 安徽省(中国)"</item>
+	<item>"滁州, 安徽省(中国)"</item>
+	<item>"六安, 安徽省(中国)"</item>
+	<item>"宣城, 安徽省(中国)"</item>
+	<item>"巢湖, 安徽省(中国)"</item>
+	<item>"池州, 安徽省(中国)"</item>
+	<item>"亳州, 安徽省(中国)"</item>
+	<!--湖北 未找到:天门-->
+	<item>"武汉, 湖北省(中国)"</item>
+        <item>"黄石, 湖北省(中国)"</item>
+	<item>"十堰, 湖北省(中国)"</item>
+	<item>"宜昌, 湖北省(中国)"</item>
+	<item>"襄樊, 湖北省(中国)"</item>
+	<item>"荆州, 湖北省(中国)"</item>
+	<item>"荆门, 湖北省(中国)"</item>
+	<item>"鄂州, 湖北省(中国)"</item>
+	<item>"孝感, 湖北省(中国)"</item>
+	<item>"黄冈, 湖北省(中国)"</item>
+	<item>"咸宁, 湖北省(中国)"</item>
+	<item>"随州, 湖北省(中国)"</item>
+	<item>"恩施, 湖北省(中国)"</item>
+	<item>"仙桃, 湖北省(中国)"</item>
+	<item>"潜江, 湖北省(中国)"</item>
+	<item>"神农架, 湖北省(中国)"</item>
+	<!--江西-->
+	<item>"南昌, 江西省(中国)"</item>
+	<item>"景德镇, 江西省(中国)"</item>
+        <item>"九江, 江西省(中国)"</item>
+	<item>"萍乡, 江西省(中国)"</item>
+	<item>"新余, 江西省(中国)"</item>
+	<item>"鹰潭, 江西省(中国)"</item>
+	<item>"宜春, 江西省(中国)"</item>
+	<item>"上饶, 江西省(中国)"</item>	
+	<item>"吉安, 江西省(中国)"</item>
+        <item>"抚州, 江西省(中国)"</item>
+ 	<!--湖南 未找到:湘潭, 湘西-->
+ 	<item>"长沙, 湖南省(中国)"</item>
+	<item>"株洲, 湖南省(中国)"</item>
+	<item>"衡阳, 湖南省(中国)"</item>
+	<item>"邵阳, 湖南省(中国)"</item>
+	<item>"岳阳, 湖南省(中国)"</item>
+	<item>"张家界, 湖南省(中国)"</item>
+        <item>"益阳, 湖南省(中国)"</item>
+	<item>"常德, 湖南省(中国)"</item>
+	<item>"娄底, 湖南省(中国)"</item>
+	<item>"郴州, 湖南省(中国)"</item>
+	<item>"永州, 湖南省(中国)"</item>
+    	<item>"怀化, 湖南省(中国)"</item>
+	<!--贵州 未找到:黔南, 黔东-->
+ 	<item>"贵阳, 贵州省(中国)"</item>
+	<item>"六盘水, 贵州省(中国)"</item>
+    	<item>"遵义, 贵州省(中国)"</item>
+	<item>"安顺, 贵州省(中国)"</item>
+	<item>"铜仁, 贵州省(中国)"</item>
+    	<item>"毕节, 贵州省(中国)"</item>
+ 	<item>"黔西, 贵州省(中国)"</item>
+    	<!--云南 未找到:西双版纳, 德宏, 迪庆-->
+ 	<item>"昆明, 云南省(中国)"</item>
+	<item>"曲靖, 云南省(中国)"</item>
+    	<item>"玉溪, 云南省(中国)"</item>
+	<item>"保山, 云南省(中国)"</item>
+ 	<item>"昭通, 云南省(中国)"</item>
+	<item>"丽江, 云南省(中国)"</item>
+    	<item>"普洱, 云南省(中国)"</item>
+    	<item>"临沧, 云南省(中国)"</item>
+	<item>"楚雄, 云南省(中国)"</item>
+	<item>"大理, 云南省(中国)"</item>
+	<item>"红河, 云南省(中国)"</item>
+    	<item>"文山, 云南省(中国)"</item>	
+ 	<item>"怒江, 云南省(中国)"</item>
+    	<!--广西 未找到:防城港, 百色, 贺州, 崇左-->
+ 	<item>"南宁, 广西省(中国)"</item>
+	<item>"柳州, 广西省(中国)"</item>
+    	<item>"桂林, 广西省(中国)"</item>
+ 	<item>"梧州, 广西省(中国)"</item>
+    	<item>"北海, 广西省(中国)"</item>
+    	<item>"钦州, 广西省(中国)"</item>
+	<item>"贵港, 广西省(中国)"</item>
+	<item>"玉林, 广西省(中国)"</item>
+	<item>"河池, 广西省(中国)"</item>
+	<item>"来宾, 广西省(中国)"</item>
+	<!--广东-->
+ 	<item>"广州, 广东省(中国)"</item>
+ 	<item>"深圳, 广东省(中国)"</item>
+ 	<item>"珠海, 广东省(中国)"</item>
+ 	<item>"汕头, 广东省(中国)"</item>
+ 	<item>"韶关, 广东省(中国)"</item>
+ 	<item>"佛山, 广东省(中国)"</item>
+ 	<item>"江门, 广东省(中国)"</item>
+ 	<item>"湛江, 广东省(中国)"</item>
+ 	<item>"茂名, 广东省(中国)"</item>
+ 	<item>"肇庆, 广东省(中国)"</item>
+ 	<item>"惠州, 广东省(中国)"</item>
+ 	<item>"梅州, 广东省(中国)"</item>
+ 	<item>"汕尾, 广东省(中国)"</item>
+ 	<item>"河源, 广东省(中国)"</item>
+ 	<item>"阳江, 广东省(中国)"</item>
+ 	<item>"清远, 广东省(中国)"</item>
+ 	<item>"东莞, 广东省(中国)"</item>
+ 	<item>"中山, 广东省(中国)"</item>
+ 	<item>"潮州, 广东省(中国)"</item>
+ 	<item>"揭阳, 广东省(中国)"</item>
+ 	<item>"云浮, 广东省(中国)"</item>
+ 	<!--海南 未找到:定安, 屯昌, 澄迈, 临高, 琼中, 保亭, 白沙, 昌江, 乐东, 陵水-->
+ 	<item>"海口, 海南省(中国)"</item>
+ 	<item>"三亚, 海南省(中国)"</item>
+ 	<item>"儋州, 海南省(中国)"</item>
+ 	<item>"五指山, 海南省(中国)"</item>
+ 	<item>"文昌, 海南省(中国)"</item>
+ 	<item>"琼海, 海南省(中国)"</item>
+ 	<item>"万宁, 海南省(中国)"</item>
+ 	<item>"东方, 海南省(中国)"</item>
+ 	<!--台湾-->
+ 	<item>"台北, 台湾省(中国)"</item>
+ 	<!--香港-->
+	<item>"香港, 香港特别行政区(中国)"</item>
+	<!--澳门-->
+	<item>"澳门, 澳门特别行政区(中国)"</item>
+    </string-array>
+    <string-array name="siri_suggest_app_package_name">   
+        <item>"com.android.mms"</item> 
+        <item>"com.joy7.safari"</item>        
+        <item>"com.android.contacts"</item> 
+        <item>"com.android.settings"</item>         
+    </string-array>
+    <string-array name="added_widget_app_name">        
+        <item>"Up Next"</item>   
+        <item>"Siri App Suggestions"</item>
+        <item>"Weather"</item> 
+        <item>"Maps Destinations"</item> 
+        <item>"Stocks"</item>               
+    </string-array>
+    <string-array name="other_widget_app_name">         
+        <item>"Favorites"</item> 
+        <item>"Mail"</item>
+        <item>"Maps Nearby"</item>
+        <item>"Maps Transit"</item>
+        <item>"Photos Memories"</item> 
+        <item>"Notes"</item>   
+        <item>"Tips"</item>  
+        <item>"Reminders"</item>    
+        <item>"Calendar"</item>
+        <item>"Find Friends"</item>  
+        <item>"Music"</item>         
+    </string-array>  
+
+    <string-array name="added_control_center_lables">        
+       <item>"Flashlight"</item>   
+       <item>"Timer"</item>
+       <item>"Calculator"</item> 
+       <item>"Camera"</item>
+       <item>"QRCode"</item>
+       <!-- <item>"Low Power Mode"</item> 
+       <item>"Magnifier"</item> 
+       <item>"Do Not Disturb While Driving"</item> 
+       <item>"Accessibility Shortcuts"</item> 
+       <item>"Alarm"</item> 
+       <item>"Apple TV Remote"</item> 
+       <item>"Guided Access"</item> 
+       <item>"Notes"</item> 
+       <item>"Screen Recording"</item> 
+       <item>"Stopwatch"</item> 
+       <item>"Text Size"</item>
+       <item>"Voice Memos"</item>
+       <item>"Wallet"</item>  -->              
+   </string-array>
+</resources>

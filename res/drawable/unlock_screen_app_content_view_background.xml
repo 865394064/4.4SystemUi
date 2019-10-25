@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >  
+      
+    <corners  android:radius="20dp"/>
+    <solid  android:color="@color/unlock_screen_app_content_view_background"/>
+    <gradient
+        android:startColor="@color/unlock_screen_app_content_view_background"
+        android:endColor="@color/unlock_screen_app_content_view_background"
+        android:angle="90"
+    />
+</shape>  

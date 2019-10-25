@@ -1,0 +1,471 @@
+/*
+ * Copyright (C) 2011 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.android.systemui.statusbar;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.util.Slog;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityEvent;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.telephony.TelephonyManager;
+import com.android.systemui.R;
+import com.mediatek.systemui.ext.IconIdWrapper;
+import com.mediatek.systemui.ext.PluginFactory;
+import com.android.systemui.statusbar.policy.NetworkController;
+import android.widget.FrameLayout;
+import com.mediatek.xlog.Xlog;
+
+import android.widget.TextView;//added by wang 20130725
+import com.android.internal.telephony.IccCardConstants;
+import android.widget.ProgressBar;
+import android.content.Intent;
+
+// Intimately tied to the design of res/layout/signal_cluster_view.xml
+public class SignalCl
+        extends LinearLayout
+        implements NetworkController.SignalCluster {
+
+    static final boolean DEBUG = false;
+    static final String TAG = "SignalClusterView";
+
+    NetworkController mNC;
+    private boolean mWifiVisible = false;
+    private int mWifiStrengthId = 0;
+    private int mWifiActivityId = 0;
+    private boolean mMobileVisible = true;
+    private IconIdWrapper mMobileStrengthId = new IconIdWrapper();
+    private IconIdWrapper mMobileActivityId = new IconIdWrapper(0);
+    private IconIdWrapper[][] mdoubleMobileStrengthId;
+    private int mMobileTypeId = 0;
+    private boolean mIsAirplaneMode = false;
+    private int mAirplaneIconId = 0;
+    private String mWifiDescription, mMobileDescription, mMobileTypeDescription;
+    int sim2=0;
+    /// M: Support SIM Indicator. @{
+    final TelephonyManager tm;
+    public String im1,im2;
+    private boolean mShowSimIndicator = false;
+    private int mSimIndicatorResource = 0;
+    private ViewGroup mSignalClusterCombo;
+    
+    /// M: Support SIM Indicator. }@
+    
+    /// M: Support Roam Data Icon both show. @{
+    
+    private boolean mRoaming = false;
+    private int mRoamingId = 0;
+    private ImageView mMobileRoam;
+    private int mPostype = 0;
+    public static final int SIGNAL_POSTYPE_TOP = 1;
+
+    /// M: Support Roam Data Icon both show. }@
+
+    ViewGroup mWifiGroup,mWifiGroup1,mMobileGroup;
+    ImageView mWifi,mWifi1, mMobile,mobile_signal_2, mWifiActivity, mWifiActivity1,mMobileType, mAirplane;//mMobileActivity
+    FrameLayout no_sims_combo;
+    ProgressBar mMobileActivity;
+    View mSpacer;
+    View mWifiSpacer;
+	//added by wang 20130725 start
+	TextView mMobileNameView;
+    TextView no_sims_text1;
+	String mMobileNameStr;
+	//added by wang 20130725 end
+
+    public SignalCl(Context context) {
+        this(context, null);
+        Log.d("hjz3","3");
+        //im1=tm.getSubscriberIdGemini(0);
+    }
+
+    public SignalCl(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+        Log.d("hjz3","2");
+        //im1=tm.getSubscriberIdGemini(0);
+    }
+
+    public SignalCl(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        //TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SignalClusterViewAttr);
+        //int postype = a.getInt(R.styleable.SignalClusterViewAttr_postype, 0);
+        //Log.d("kay18", "SignalClusterView: postype:" + postype);
+        //a.recycle();
+
+        tm=(TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        //im1=tm.getSubscriberIdGemini(0);
+    }
+
+    public void setNetworkController(NetworkController nc) {
+        if (DEBUG) Slog.d(TAG, "NetworkController=" + nc);
+
+        mNC = nc;
+    }
+
+    public void setPosType(int nPostype){
+        mPostype = nPostype;
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+
+        //add by hjz
+        no_sims_text1   = (TextView) findViewById(R.id.no_sims_text1);
+        no_sims_combo   = (FrameLayout) findViewById(R.id.no_sims_combo);
+        mWifiGroup      = (ViewGroup) findViewById(R.id.wifi_combo);
+        mWifi           = (ImageView) findViewById(R.id.wifi_signal);
+        mWifiActivity   = (ImageView) findViewById(R.id.wifi_inout);
+        mWifiGroup1      = (ViewGroup) findViewById(R.id.wifi_combo1);
+        mWifi1           = (ImageView) findViewById(R.id.wifi_signal1);
+        mWifiActivity1   = (ImageView) findViewById(R.id.wifi_inout1);
+        mMobileGroup    = (ViewGroup) findViewById(R.id.mobile_combo);
+        mMobile         = (ImageView) findViewById(R.id.mobile_signal);
+        mobile_signal_2 = (ImageView) findViewById(R.id.mobile_signal_x);
+        //mMobileActivity = (ImageView) findViewById(R.id.mobile_inout);
+        mMobileActivity=(ProgressBar)findViewById(R.id.mobile_inout);
+        mMobileType     = (ImageView) findViewById(R.id.mobile_type);
+        mSpacer         =             findViewById(R.id.spacer);
+        mWifiSpacer     =             findViewById(R.id.wifispacer);
+        mAirplane       = (ImageView) findViewById(R.id.airplane);
+		mMobileNameView       = (TextView) findViewById(R.id.mobile_name);//added by wang 20130725
+        
+        /// M: Support SIM Indicator. 
+        mSignalClusterCombo           = (ViewGroup) findViewById(R.id.signal_cluster_combo);
+
+        /// M: Support Roam Data Icon both show.
+        mMobileRoam     =  (ImageView) findViewById(R.id.mobile_roaming);
+        
+        apply();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        mWifiGroup      = null;
+        mWifiGroup1      = null;
+        mWifi           = null;
+        mWifi1           = null;
+        mWifiActivity   = null;
+        mWifiActivity1   = null;
+        mMobileGroup    = null;
+        mMobile         = null;
+        mMobileActivity = null;
+        mMobileType     = null;
+        mSpacer         = null;
+        mWifiSpacer     = null;
+        mAirplane       = null;
+		mMobileNameView     = null;//added by wang 20130725
+        
+        /// M: Support Roam Data Icon both show.
+        mMobileRoam     = null;
+
+        super.onDetachedFromWindow();
+    }
+
+    @Override
+    public void setWifiIndicators(boolean visible, int strengthIcon, int activityIcon,
+            String contentDescription) {
+        mWifiVisible = visible;
+        mWifiStrengthId = strengthIcon;
+        mWifiActivityId = activityIcon;
+        mWifiDescription = contentDescription;
+
+        apply();
+    }
+
+    public void setMobileDataIndicators(boolean visible, IconIdWrapper strengthIcon, IconIdWrapper activityIcon,
+            int typeIcon, String contentDescription, String typeContentDescription, String displayName) {
+        mMobileVisible = visible;
+        mMobileStrengthId = strengthIcon.clone();
+        mMobileActivityId = activityIcon.clone();
+        mMobileTypeId = typeIcon;
+        mMobileDescription = contentDescription;
+        mMobileTypeDescription = typeContentDescription;
+       //modified by xujia 20130911
+       if(displayName!=null)
+		mMobileNameStr = displayName.replaceAll("\\d+","").trim();//added by wang 20130726
+		
+        Xlog.d("kay19", "setMobileDataIndicators"
+                + " mMobileVisible=" + mMobileVisible
+                + " mMobileStrengthId=" + mMobileStrengthId.getIconId()
+                + " mMobileActivityId=" + mMobileActivityId.getIconId()
+                + " mMobileTypeId=" + mMobileTypeId
+                + " mWifiGroup" + ((mWifiGroup == null) ? "=null" : "!=null")
+                + " contentDescription=" + contentDescription
+                + " typeContentDescription=" + typeContentDescription
+                + " mMobileNameStr=" + mMobileNameStr);
+
+        apply();
+    }
+
+    @Override
+    public void setIsAirplaneMode(boolean is, int airplaneIconId) {
+        mIsAirplaneMode = is;
+        mAirplaneIconId = airplaneIconId;
+
+        apply();
+    }
+
+    /// M: Support SIM Indicator. @{
+    
+    public void setShowSimIndicator(boolean showSimIndicator, int simIndicatorResId) {
+        mShowSimIndicator = showSimIndicator;
+        mSimIndicatorResource = simIndicatorResId;
+        
+        apply();
+    }
+    
+    /// M: Support SIM Indicator. }@
+    
+    /// M: Support Roam Data Icon both show.
+    public void setRoamingFlagandResource(boolean roaming, int roamingId) {
+        mRoaming = roaming;
+        mRoamingId = roamingId;
+    }
+    public void setdoubsim(int sim2) {
+        sim2 = sim2;
+    }
+    
+    @Override
+    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
+        // Standard group layout onPopulateAccessibilityEvent() implementations
+        // ignore content description, so populate manually
+        if (mWifiVisible && mWifiGroup.getContentDescription() != null)
+            event.getText().add(mWifiGroup.getContentDescription());
+        if (mMobileVisible && mMobileGroup.getContentDescription() != null)
+            event.getText().add(mMobileGroup.getContentDescription());
+        return super.dispatchPopulateAccessibilityEvent(event);
+    }
+
+//added by wang 20130731 start
+	public void updateSignalColor(boolean white) {
+		if(mMobileNameView!=null)
+		mMobileNameView.setTextColor(white ? 0xFFFFFFFF : 0xFF000000);
+		/*Begin:added by xss for back to last app*/
+	        Intent intent	=new Intent("back_button_text_color");
+		 intent.putExtra("isWhite",white);
+		 getContext().sendBroadcast(intent);
+		 /*End:added by xss for back to last app*/
+	}
+//added by wang 20130731 end
+
+    // Run after each indicator change.
+    private void apply() {
+        im1=tm.getSubscriberIdGemini(0);
+        im2=tm.getSubscriberIdGemini(1);
+       // Log.d("hjz3","apply"+"mMobileVisible"+mMobileVisible+"mIsAirplaneMode"+mIsAirplaneMode+"tm"+im1);
+
+        if (mWifiGroup == null) return;
+        mWifiGroup1.setVisibility(View.GONE);
+        if (mWifiVisible) {
+            mWifiGroup.setVisibility(View.VISIBLE);
+            mWifi.setImageResource(mWifiStrengthId);
+            mWifi1.setImageResource(mWifiStrengthId);
+            mWifiActivity.setImageResource(mWifiActivityId);
+            mWifiActivity1.setImageResource(mWifiActivityId);
+            mWifiGroup.setContentDescription(mWifiDescription);
+            mWifiGroup1.setContentDescription(mWifiDescription);
+        } else {
+            mWifiGroup.setVisibility(View.GONE);
+        }
+        if (mWifiVisible && PluginFactory.getStatusBarPlugin(mContext).supportDataTypeAlwaysDisplayWhileOn()) {
+            mWifiSpacer.setVisibility(View.INVISIBLE);
+        } else {
+            mWifiSpacer.setVisibility(View.GONE);
+        }
+        if (DEBUG) Slog.d(TAG,
+                String.format("wifi: %s sig=%d act=%d",
+                    (mWifiVisible ? "VISIBLE" : "GONE"),
+                    mWifiStrengthId, mWifiActivityId));
+        if(im1!=null || im2!=null){
+            //no_sims_text1.setVisibility(View.GONE);
+          //  Log.d("hjz3","mMobileStrengthId.getIconId()==="+mMobileStrengthId.getIconId());
+            mMobile.setImageResource(mMobileStrengthId.getIconId());
+            no_sims_combo.setVisibility(View.GONE);
+        }
+        if(im1!=null && im2!=null){
+            //no_sims_text1.setVisibility(View.GONE);
+           // Log.d("hjz3","mMobileStrengthId.getIconId()==="+mMobileStrengthId.getIconId());
+            mMobile.setImageResource(mMobileStrengthId.getIconId());
+            no_sims_combo.setVisibility(View.GONE);
+            no_sims_text1.setVisibility(View.VISIBLE);
+            mobile_signal_2.setImageResource(R.drawable.stat_sys_gemini_signal_4_second_white);
+        }else{
+            no_sims_text1.setVisibility(View.GONE);
+            mobile_signal_2.setImageResource(0);
+
+        }
+        if ((im1==null && im2==null)){
+            //mMobile.setImageDrawable(null);
+            no_sims_text1.setVisibility(View.VISIBLE);
+            no_sims_combo.setVisibility(View.VISIBLE);
+        }
+        if (mMobileVisible && !mIsAirplaneMode) {//delete by hjz
+        //if (!mIsAirplaneMode) {
+            /// M: Support Roam Data Icon both show. @{
+            if (mRoaming) {
+                mMobileRoam.setImageResource(mRoamingId);
+                mMobileRoam.setVisibility(View.VISIBLE);
+            } else {
+                mMobileRoam.setImageResource(0);
+                mMobileRoam.setVisibility(View.GONE);
+            }
+            /// M: Support Roam Data Icon both show. }@
+              //Log.d("hjz3","apply=="+mMobileStrengthId.getResources()+"mMobileStrengthId.getIconId()= "+mMobileStrengthId.getIconId());
+              mMobileGroup.setVisibility(View.VISIBLE);
+       
+			mMobileNameView.setText(mMobileNameStr);
+            Log.d("hjz4","MobileName="+mMobileNameView);
+            if (mMobileStrengthId.getResources() != null) {
+                Log.d("hjz3","mMobile==1");
+                mMobile.setImageDrawable(mMobileStrengthId.getDrawable());
+            } else {
+                if (mMobileStrengthId.getIconId() == 0) {
+                    Log.d("hjz3","mMobile==2");
+                    mMobile.setImageDrawable(null);
+
+                } else {
+                    Log.d("hjz3","mMobile==3");
+                    mMobile.setImageResource(mMobileStrengthId.getIconId());
+                }
+            }
+            if(!mNC.getWifiState())
+                {
+                    if (mMobileActivityId.getResources() != null) {
+                        //mMobileActivity.setImageDrawable(mMobileActivityId.getDrawable());
+                        mMobileActivity.setVisibility(View.VISIBLE);
+                    } else {
+                        if (mMobileActivityId.getIconId() == 0) {
+                            //mMobileActivity.setImageDrawable(null);
+                            mMobileActivity.setVisibility(View.GONE);
+                        } else {
+                            //mMobileActivity.setImageResource(mMobileActivityId.getIconId());
+                              mMobileActivity.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }else
+                    {
+                          mMobileActivity.setVisibility(View.GONE);
+                    }
+       
+            mMobileType.setImageResource(mMobileTypeId);
+               if(!mNC.isMobileConnected())
+                {     
+                       mMobileType.setVisibility(View.GONE);
+                }
+            Xlog.d(TAG, "apply() setImageResource(mMobileTypeId) mShowSimIndicator = " + mShowSimIndicator);
+            mMobileGroup.setContentDescription(mMobileTypeDescription + " " + mMobileDescription);
+            
+            /// M: Airplane mode: Shouldn't show data type icon (L1)
+            ///    OP01 project: Not in airplane mode, the data type icon should be always displayed (L2)
+            ///    WifiVisible: Not in airplane mode, not OP01 project, the data type icon should follow the wifi visible status (L3)
+            if (PluginFactory.getStatusBarPlugin(mContext).supportDataTypeAlwaysDisplayWhileOn()) {
+                mMobileType.setVisibility(View.VISIBLE);
+            } else {
+                mMobileType.setVisibility(!mWifiVisible ? View.VISIBLE : View.GONE);
+            }
+            
+            /// M: When the signal strength icon id is null should hide the data type icon, this including several status
+            if (mMobileStrengthId.getIconId() == R.drawable.stat_sys_signal_null) {
+                mMobileType.setVisibility(View.GONE);
+            }
+            
+            /// M: Support SIM Indicator. @{
+            if (mShowSimIndicator) {
+                Log.d("hjz","mSimIndicatorResource="+mSimIndicatorResource);
+                mSignalClusterCombo.setBackgroundResource(mSimIndicatorResource);
+            } else {
+                mSignalClusterCombo.setPadding(0, 0, 0, 0);
+                mSignalClusterCombo.setBackgroundDrawable(null);
+            }
+            /// M: Support SIM Indicator. }@
+        } else {
+            if((im1==null && im2==null)){
+            mMobileGroup.setVisibility(View.GONE);
+            }else{
+                mMobileGroup.setVisibility(View.VISIBLE);
+            }
+            //modified by hjz
+            mMobileNameView.setVisibility(View.VISIBLE);
+
+            if(mNC.mSimState==IccCardConstants.State.ABSENT)
+            {
+                 mMobileType.setVisibility(View.GONE);
+                Log.d("hjz4","无ka");
+                mMobileNameView.setText(R.string.no_sim);
+            }else {
+                if(!mNC.hasService())
+                    mMobileType.setVisibility(View.GONE);
+                Log.d("hjz4","无服务");
+                mMobileNameView.setText(R.string.no_service);//added by wang 20130726
+            }
+                   //end by xujia 20130830
+        }
+
+
+        if(mNC.mSimState==IccCardConstants.State.ABSENT)
+        {
+             mMobileGroup.setVisibility(View.GONE);
+             mMobileType.setVisibility(View.GONE);
+             mMobileNameView.setText(R.string.no_sim);
+        }
+
+        if (mIsAirplaneMode) {
+            mAirplane.setVisibility(View.VISIBLE);
+            mMobileNameView.setVisibility(View.GONE);
+            mMobileType.setVisibility(View.GONE);
+            mAirplane.setImageResource(mAirplaneIconId);
+            mMobileActivity.setVisibility(View.GONE);
+        } else {
+            mAirplane.setVisibility(View.GONE);
+        }
+
+        if (mMobileVisible && mWifiVisible && mIsAirplaneMode) {
+            mSpacer.setVisibility(View.INVISIBLE);
+        } else {
+            mSpacer.setVisibility(View.GONE);
+        }
+
+        //Log.d("kay19", "apply: mPostype:" + mPostype );
+        try{
+            if(mPostype == SIGNAL_POSTYPE_TOP){
+                //if(mNC.mSimState==IccCardConstants.State.ABSENT)
+                {
+                    mMobileNameView.setText(R.string.mobile_name_empty);
+                }
+               // mWifiGroup.setVisibility(View.GONE);
+               // mWifiGroup1.setVisibility(View.VISIBLE);
+            }else{
+               // mWifiGroup1.setVisibility(View.GONE);
+               // mWifiGroup.setVisibility(View.VISIBLE);
+            }
+        }catch (Exception e){
+
+        }
+
+        if (DEBUG) Slog.d(TAG,
+                String.format("mobile: %s sig=%d act=%d typ=%d",
+                    (mMobileVisible ? "VISIBLE" : "GONE"),
+                    mMobileStrengthId.getIconId(), mMobileActivityId.getIconId(), mMobileTypeId));
+
+    }
+}
+

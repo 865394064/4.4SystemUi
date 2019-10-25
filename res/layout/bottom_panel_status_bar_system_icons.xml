@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2014 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License
+  -->
+<!--Begin:added by xss for ios11-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_panel_status_bar_system_icons"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+    <LinearLayout
+        android:id="@+id/bottom_panel_status_bar_signal_battery_cluster"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+	 android:layout_marginRight="2dp"
+        android:orientation="horizontal"
+        android:gravity="left|bottom"
+        >
+    <!-- M: Support "SystemUI - Battery Percentage". android:paddingLeft="2dip" @{ -->
+        <TextView
+            android:id="@+id/bottom_panel_status_bar_percentage"
+            android:layout_height="wrap_content"  
+            android:layout_width="wrap_content"
+            
+            android:layout_marginRight="1dip"
+            android:textSize="11sp"
+            android:textColor="@android:color/white"/>	<!--android:paddingTop="@dimen/percentage_paddingtop"-->	
+    <!-- M: Support "SystemUI - Battery Percentage". }@ -->
+        <!--com.android.systemui.BatteryMeterView-->
+        <TextView
+            android:id="@+id/bottom_panel_status_bar_battery"
+            android:layout_height="16dp"
+            android:layout_width="30dp"
+            android:layout_marginTop="0dip"
+            android:gravity="left"
+            />
+        <ImageView
+            android:id="@+id/bottom_panel_status_bar_charging" 
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:src="@drawable/battery_charging_white"
+            android:paddingLeft="1dip"
+            android:paddingTop="1dp"
+            android:visibility="gone"
+            />
+	<View
+	    android:layout_height="fill_parent"
+	    android:layout_width="4dp"
+	    android:visibility="gone"
+		/>
+			   
+        <ImageView
+            android:id="@+id/bottom_panel_status_bar_landsView"
+            android:layout_height="fill_parent"
+            android:layout_width="93dip"
+            android:paddingRight="6dip"
+            android:visibility="gone"
+          />    
+    </LinearLayout>
+<!--End:added by xss for ios11-->
+  
+</LinearLayout>

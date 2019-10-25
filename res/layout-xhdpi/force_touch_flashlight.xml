@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/flash_light_control_force_touch_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="31dp"
+    android:layout_marginRight="31dp"
+    android:layout_centerInParent="true"
+    android:orientation="vertical" 
+    android:visibility="gone"
+    >
+    <ImageView
+      android:id="@+id/force_touch_flash_light_icon"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="70dp"
+      android:src="@drawable/force_touch_flash_light_close"
+      />
+   <com.android.systemui.statusbar.phone.VerticalSeekBar
+      android:id="@+id/force_touch_flash_light_seek_bar"
+      android:layout_width="122dp"
+      android:layout_height="296dp"
+      android:layout_centerInParent="true"
+      android:minHeight="122dp"
+      android:maxHeight="122dp"
+      android:padding="0dp"
+      android:thumb="@null"
+      android:progressDrawable="@drawable/force_touch_flash_light_seekbar_progress"
+      android:progress="0"
+      android:max="5"/>        	 
+</RelativeLayout>

@@ -1,0 +1,111 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+	android:orientation="vertical" >
+
+	<View android:layout_width="fill_parent" 
+		android:layout_height="1.0px"
+             	android:layout_marginTop="5dip"
+               android:background="#25ffffff" />
+   
+    <com.android.systemui.MyScrollView
+        android:id="@+id/today"
+        android:layout_width="fill_parent"   
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+	
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+	
+
+
+	 	
+
+
+            <com.android.systemui.statusbar.policy.DateView 
+	    		android:id="@+id/date"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+	    	android:layout_marginLeft="44.0dip"
+            android:layout_marginTop="20.0dip"
+            android:textColor="#ffffffff"
+            android:textSize="35dp"
+            />
+      
+
+	   <TextView 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:id="@+id/next_schedule_text" 			  	          
+		android:layout_marginTop="24.0dip" 
+		android:textSize="17dp" 
+		android:textColor="#ffffffff" 
+		android:layout_marginLeft="44.0dip" 		
+		android:layout_marginRight="32.0dip" />
+
+	    <LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginTop="44.0dip"
+		>
+
+		   <ImageView
+			android:id="@+id/calendar_icon"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/small_calendar_icon"/>
+         	<TextView
+                android:id="@+id/calendar_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/calendar_icon" 
+                android:gravity="center_vertical"
+				android:layout_marginLeft="5.0dip"
+                android:text="@string/calendar_small_label"
+                android:textColor="#ffffffff"
+                android:textSize="16dp" />
+		</LinearLayout>
+
+            <com.android.systemui.slider.CalendarView
+                android:id="@+id/calendar_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2.5dip"
+                 />
+
+            <TextView
+                android:id="@+id/tomorrow_label"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="46.0dip"
+                android:layout_marginTop="38.0dip"
+                android:text="@string/tomorrow_label"
+                android:textColor="#ffffffff"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="47.0dip"
+                android:layout_marginTop="8.5dip"
+                android:background="#92ffffff" />
+
+            <TextView
+                android:id="@+id/tomorrow_schedule_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12.0dip"
+                android:layout_marginLeft="46.0dip"
+                android:layout_marginTop="11.5dip"
+                android:text="@string/tomorrow_no_events"
+                android:textColor="#ffffffff"
+                android:textSize="17dp" />
+        </LinearLayout>
+    </com.android.systemui.MyScrollView>
+
+</LinearLayout>

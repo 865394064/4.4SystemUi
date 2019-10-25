@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<layer-list  
+  xmlns:android="http://schemas.android.com/apk/res/android">  
+    <item android:id="@android:id/background" android:drawable="@drawable/force_touch_flash_light_seekbar_background"> 
+        <shape>        
+		    <corners  android:radius="45dp"/>      
+		    <solid  android:color="#797878"/>  		    	  
+		</shape>  
+    </item>
+       
+    <item android:id="@android:id/secondaryProgress">
+        <clip>  
+	        <shape>      
+			    <corners  android:radius="45dp"/>      
+			    <solid  android:color="#00797878"/>  	    		  
+			</shape> 
+		</clip>  
+    </item>  
+           
+    <item android:id="@android:id/progress" android:drawable="@drawable/force_touch_flash_light_seekbar_progress_img">
+        <clip>  
+            <shape>  
+                <corners  android:radius="45dp"/>
+                <solid android:color="#fff" />  
+            </shape>            
+        </clip> 
+    </item>       
+</layer-list> 

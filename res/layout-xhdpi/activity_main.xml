@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+  <LinearLayout
+       xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recents_bg_protect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+          android:layout_gravity="center_vertical|center_horizontal"
+        android:paddingTop="20dp"
+       >
+
+ <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       	android:orientation="vertical"
+       >
+       
+     <LinearLayout
+         android:id="@+id/header_container"
+         android:layout_width="match_parent"
+        android:layout_height="20dp"
+         >
+         
+  
+        <TextView
+          android:id="@+id/favoriate_user"
+          android:paddingLeft="13dp"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/favoriate_user"
+        android:textSize="15dp"
+         android:visibility="gone"
+          ></TextView>
+       
+       
+          <TextView
+              android:id="@+id/recents_user"
+          android:paddingLeft="13dp"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recents_user"
+        android:textSize="15dp"
+        android:visibility="gone"
+          ></TextView>
+    </LinearLayout>
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       	android:orientation="vertical"
+       	android:gravity="center|top"
+       >
+    	<TextView
+			    android:id="@+id/no_recents_contacts"
+	
+		        android:paddingTop="40dp"
+		        android:gravity="center_horizontal"
+        		android:layout_gravity="center"
+		       	android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/no_recents"
+		        android:textSize="15dp"
+		        android:visibility="gone"
+		    />
+     </LinearLayout>
+	<com.android.systemui.recent.MyScrollView
+		 android:layout_width="match_parent"
+		 android:orientation="horizontal"
+		 android:fadingEdge="none"
+		 android:scrollbars="none"
+		 android:id="@+id/scroll_view"
+		 android:gravity="center_horizontal"
+		 android:layout_gravity="center_vertical|center_horizontal"
+		 android:layout_height="wrap_content">
+
+	      <LinearLayout android:id="@+id/recents_linear_layout"
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent"
+		          android:paddingLeft="5dp"
+		           android:gravity="center"
+		          
+		        android:orientation="horizontal"
+		        android:clipToPadding="false"
+		        android:clipChildren="false">
+		    </LinearLayout>
+		    
+	</com.android.systemui.recent.MyScrollView>
+</LinearLayout>
+  </LinearLayout>

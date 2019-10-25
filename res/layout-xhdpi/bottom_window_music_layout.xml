@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/music_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:id="@+id/no_music_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/no_music_left_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iphone_no_music_left_right" />
+
+        <ImageView
+            android:id="@+id/no_music_center_iv"
+            android:layout_width="250dip"
+            android:layout_height="2dip"
+            android:background="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/no_music_right_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iphone_no_music_left_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/music_progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip" >
+<!--
+        <TextView
+            android:id="@+id/music_playing_time_minute_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/music_playing_time_left_colon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iphone_colon" />
+-->
+        <TextView
+            android:id="@+id/music_playing_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/music_seek_bar"
+            style="@*android:style/iphoneSeekbarRectStyle"
+            android:thumbOffset="0dp" />
+
+        <TextView
+            android:id="@+id/music_left_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+<!--
+        <ImageView
+            android:id="@+id/music_left_time_left_colon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iphone_colon" />
+
+        <TextView
+            android:id="@+id/music_left_time_second_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+-->
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dip"
+        android:layout_marginStart="16dip"
+        android:layout_marginEnd="16dip"
+        android:gravity="center_horizontal"
+        android:ellipsize="end"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+    />
+
+    <TextView
+        android:id="@+id/artist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dip"
+        android:layout_marginStart="16dip"
+        android:layout_marginEnd="16dip"
+        android:gravity="center_horizontal"
+        android:ellipsize="end"
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+    />
+
+    <LinearLayout
+        android:id="@+id/music_control_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip" >
+
+        <ImageView
+            android:id="@+id/music_backward_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iphone_music_backward" />
+
+        <ImageView
+            android:id="@+id/music_play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iphone_music_play" />
+
+        <ImageView
+            android:id="@+id/music_forward_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iphone_music_forward" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/music_volume_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="0dip"
+        android:paddingTop="0dip" >
+
+        <ImageView
+            android:id="@+id/music_volume_min_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="-10dp"
+            android:background="@drawable/iphone_volume_min" />
+
+        <SeekBar
+            android:id="@+id/music_volume_seek_bar"
+            style="@*android:style/iphoneSeekbarRoundStyle"
+            android:thumbOffset="20dp" />
+
+        <ImageView
+            android:id="@+id/music_volume_max_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-10dp"
+            android:background="@drawable/iphone_volume_max" />
+    </LinearLayout>
+    
+</LinearLayout>

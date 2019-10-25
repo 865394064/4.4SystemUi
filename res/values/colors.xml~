@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright 2010, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources>
+    <drawable name="notification_number_text_color">#ffffffff</drawable>
+    <drawable name="ticker_background_color">#ff1d1d1d</drawable>
+    <drawable name="status_bar_background">#00000000</drawable><!-- changed by wang 20130725 from 'ff000000' to '00000000' -->
+    <color name="notification_panel_solid_background">#ff000000</color>
+    <drawable name="status_bar_recents_app_thumbnail_background">#88000000</drawable>
+    <color name="status_bar_recents_app_label_color">#ffffffff</color>
+    <drawable name="status_bar_notification_row_background_color">#ff090909</drawable>
+    <color name="notification_list_shadow_top">#80000000</color>
+    <drawable name="recents_callout_line">#99ffffff</drawable>
+    <drawable name="notification_item_background_legacy_color">#ffaaaaaa</drawable>
+    <drawable name="intruder_bg_pressed">#ff33B5E5</drawable>
+    <drawable name="notification_header_bg">#80000000</drawable>
+
+    <!-- ==================== system bar only ==================== -->
+    <drawable name="system_bar_background">#ff000000</drawable>
+    <!-- the darkening filter applied to notifications -->
+    <drawable name="notification_icon_area_smoke">#aa000000</drawable>
+    <color name="notification_panel_scrim_color">#B0000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- M: [SystemUI] Support clear button text color. -->
+    <color name="blur_black">#800d0d0d</color><!-- 80%  -->
+    <!--Begin:added by xss for ios10-->
+    <color name="result_list_item_text_color">#b4ffffff</color>
+    <color name="unlock_screen_app_content_view_background">#eed9e2e3</color>
+    <color name="gray_background">#eeeeee</color>
+    <color name="gray_text_color">#a6a6a6</color>
+    <color name="app_name_color">#7e7d7d</color>
+    <color name="search_plate_color">#ee006561</color>
+    <color name="red">#fb0000</color>
+    <color name="calendar_event_time_text_color">#645e5e</color>
+    <color name="calendar_event_text_color">#333030</color>
+    <color name="back_to_phone_background">#2eed2e</color>
+    <color name="divide_line_color">#c1c1c1</color>
+    <color name="black">#000</color>
+    <drawable name="iphone_blue_unpressed">#007aff</drawable>  
+    <drawable name="iphone_blue_pressed">#c2daf6</drawable>
+    <color name="clock_white">#ffffffff</color>
+    <color name="search_text_background">#dd5aa199</color>
+    <color name="transparent">#00000000</color>
+    <color name="system_primary_color">#ff263238</color><!-- blue grey 900 -->
+</resources>

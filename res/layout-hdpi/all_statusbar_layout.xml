@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"  >
+    <!-- add by csc android:visibility="gone"-->
+    <View android:layout_width="fill_parent"
+          android:id="@+id/line"
+          android:layout_height="1.0px"
+          android:layout_marginTop="5dip"
+          android:background="#25ffffff"
+          android:visibility="gone"
+        />
+
+    <ScrollView
+        android:id="@+id/all"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <!--begin add by csc-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dip"
+                >
+                <RelativeLayout
+                    android:id="@+id/deleteLin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:text="@string/today_label"
+                        android:layout_marginLeft="70dp"
+                        android:textSize="19sp"
+                        android:visibility="gone"
+                        />
+                    <TextView
+                        android:id="@+id/unread_notification_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:text="@string/unread_notification"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="27sp"
+                        android:visibility="visible"
+                        />
+
+                    <ImageView
+                        android:id="@+id/delete_all_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/delete_all_btn_icon"
+                        android:layout_marginTop="3dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dip"
+                        />
+                    <!--begin:add by csc on 20161008-->
+                    <TextView
+                        android:id="@+id/delete_all_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_bar_clear_all_button"
+                        android:layout_marginTop="3dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/delete_all_tv_bg"
+                        android:layout_marginRight="10dip"
+                        android:textSize="14sp"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+            <!--end add by csc-->
+        <com.android.systemui.statusbar.policy.NotificationRowLayout
+            android:id="@+id/latestItems"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            />
+        </LinearLayout>
+
+    </ScrollView>
+    <!--                  systemui:rowHeight="@dimen/notification_row_min_height"-->
+
+</LinearLayout>

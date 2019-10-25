@@ -1,0 +1,67 @@
+<com.android.systemui.unreadevents.UnReadMessageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/unread_message_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/zzzzzz_unread_event_bg" >
+
+    <ImageView
+        android:id="@+id/unread_message_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/unread_message_name_or_number"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_toRightOf="@id/unread_message_icon"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="19sp" />
+
+    <TextView
+        android:id="@+id/unread_message_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/unread_message_name_or_number"
+        android:layout_alignBaseline="@id/unread_message_name_or_number"
+        android:layout_marginLeft="10dp"
+        android:textColor="#6c7883"
+        android:textSize="16sp" />
+    
+    <TextView
+        android:id="@+id/unread_message_snippet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/unread_message_name_or_number"
+        android:layout_below="@id/unread_message_name_or_number"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:maxLines="4" />
+    
+    <TextView
+        android:id="@+id/unread_message_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/unread_message_snippet"
+        android:layout_below="@id/unread_message_snippet"
+        android:textColor="#6c7883"
+        android:textSize="19sp" />
+
+	<View 
+    	android:id="@+id/zzzzzzzzzzz_view_divider"
+    	android:layout_width="wrap_content" 
+	android:layout_height="1.0px"
+	android:layout_below="@id/unread_message_hint"
+       	android:layout_marginLeft="40dp"
+	android:visibility="gone"
+        android:background="#25ffffff" />
+
+</com.android.systemui.unreadevents.UnReadMessageView>

@@ -1,0 +1,21 @@
+package com.android.systemui.statusbar.phone;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.RelativeLayout;
+
+/**
+ * Created by hjz on 19-10-11.
+ */
+
+public class Myrelas extends RelativeLayout{
+    public Myrelas(Context context){
+        super(context);
+    }
+    public Myrelas(Context context,AttributeSet attrs,int deefStyle ){
+        super(context,attrs,deefStyle);
+    }
+    public Myrelas(Context context,AttributeSet attrs ){
+        super(context,attrs);
+    }
+}

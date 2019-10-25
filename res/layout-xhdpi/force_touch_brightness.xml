@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/brightness_control_force_touch_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone"
+   >
+   <ImageView
+      android:id="@+id/force_touch_brightness_values"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="60dp"
+      android:src="@drawable/brightness_values"
+      />
+   <com.android.systemui.statusbar.phone.VerticalSeekBar
+      android:id="@+id/force_touch_brightness_seek_bar"
+      android:layout_width="110dp"
+      android:layout_height="300dp"
+      android:minHeight="110dp"
+      android:maxHeight="110dp"
+      android:padding="0dp"
+      android:thumb="@null"
+      android:progressDrawable="@drawable/force_touch_vertical_seekbar_progress"
+      android:max="100"
+      android:paddingLeft="1dp"
+      android:paddingRight="1dp"
+      android:thumbOffset="1dp"/>
+   <ImageView
+      android:id="@+id/force_touch_night_shift"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="40dp"
+      android:src="@drawable/iphone_nightshift_off"
+      />
+   <TextView
+      android:id="@+id/force_touch_music_text" 
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:layout_marginTop="5dp"
+      android:textColor="#fff"
+      android:textSize="14sp"
+      android:text="@string/control_center_night_shift" />  		 
+</LinearLayout>

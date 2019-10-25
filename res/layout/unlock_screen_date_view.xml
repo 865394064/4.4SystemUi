@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.AppPreviewDate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="346dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="7dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical">
+    
+     <LinearLayout               
+	android:layout_height="wrap_content"
+	android:layout_width="match_parent"
+	android:orientation="vertical"
+	android:gravity="right"	
+	>
+	<TextView 
+         android:id="@+id/unlock_screen_date_text"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="15dip"
+          android:layout_marginRight="15dip"
+          android:gravity="right" 
+	  android:textColor="#88ffffff"
+	  android:textSize="38sp" />
+	<TextView 
+         android:id="@+id/unlock_screen_lunar_date_text"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="15dip"
+          android:layout_marginRight="15dip"
+          android:gravity="right" 
+	  android:textColor="#88ffffff"
+	  android:textSize="13sp" />  <!--added by xss for ios10 lunarDate-->
+     </LinearLayout>	
+     
+</com.android.systemui.statusbar.phone.AppPreviewDate>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+	android:layout_height = "match_parent"
+    android:orientation="vertical"    
+    ><!--android:layout_gravity="bottom" android:layout_height="@*android:dimen/control_center_content_height_new"-->
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+      <View
+	 	android:id="@+id/touch_handle"
+	 	android:layout_width="match_parent"
+		android:background="#0000ff00"
+	 	android:layout_height="@dimen/touch_handle_height"
+	  	android:visibility="gone"/>
+      <FrameLayout
+           android:id="@+id/title_layout"
+           android:layout_width="match_parent"
+           android:layout_marginTop="50dp"
+           android:layout_height="15dp"
+	  	android:visibility="gone">
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_gravity="center"
+            android:text="@string/airplane_mode_on"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"  
+            android:alpha="0.0" />
+        <ImageView
+            android:id="@+id/title_curve_line_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"
+            android:layout_gravity="center"
+            android:src="@drawable/iphone_bottom_window_curve_line"
+            android:alpha="0.0" />
+        <ImageView
+            android:id="@+id/title_straight_line_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"
+            android:layout_gravity="center" 
+            android:src="@drawable/iphone_bottom_window_straight_line"
+            android:alpha="1.0" />
+   	 </FrameLayout>
+		<!--by kay -->
+    <include
+        layout="@layout/bottom_panel_status_bar"
+         android:id="@+id/bottom_panel_status_bar_root_view"
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/status_bar_header_height_keyguard"
+         android:layout_marginTop="50dp"
+         android:layout_marginLeft="27dp"
+         android:layout_marginRight="27dp"
+         android:layout_marginBottom="40dp"
+        />
+
+    <com.android.systemui.statusbar.phone.ScrollViewExtend
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentBottom="false">
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginBottom="27dp"
+	        android:orientation="vertical">
+		    <LinearLayout
+		        android:id="@+id/first_row"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="25dp"
+		        android:layout_marginRight="25dp"
+		        android:layout_marginBottom="@dimen/control_center_child_view_spacing"
+		        android:orientation="horizontal">
+		        <LinearLayout 
+		           android:id="@+id/network_group_view"
+			       android:layout_width="148dp"
+			       android:layout_height="148dp"
+			       android:orientation="vertical"
+			       android:layout_marginRight="@dimen/control_center_child_view_spacing"
+			       android:background="@drawable/bottom_panel_child_view_background">
+			        <LinearLayout 
+				       android:layout_width="match_parent"
+				       android:layout_height="wrap_content"
+				       android:orientation="horizontal">
+				       <ImageView
+				            android:id="@+id/airplane_mode_iv"
+				            android:layout_width="55dp"
+				            android:layout_height="55dp"
+				            android:layout_margin="12dp"
+						    android:clickable="true"
+				            android:src="@drawable/iphone_airplane_mode_off" />
+				       <ImageView
+				            android:id="@+id/mobile_network_iv"
+				            android:layout_width="55dp"
+				            android:layout_height="55dp"
+				            android:layout_marginTop="12dp"	            
+				            android:src="@drawable/iphone_mobile_network_off" /> 	        
+				  </LinearLayout> 
+			        <LinearLayout 
+				       android:layout_width="match_parent"
+				       android:layout_height="wrap_content"
+				       android:orientation="horizontal">
+				       <ImageView
+				            android:id="@+id/wifi_iv"
+				            android:layout_width="55dp"
+				            android:layout_height="55dp"
+				            android:layout_marginLeft="12dp"
+				            android:layout_marginRight="@dimen/control_center_child_view_spacing"
+				            android:src="@drawable/iphone_wifi_off" />
+		
+			             <ImageView
+				            android:id="@+id/bluetooth_iv"
+				            android:layout_width="55dp"
+				            android:layout_height="55dp"           
+				            android:src="@drawable/iphone_bluetooth_off" /> 	        
+				 </LinearLayout> 	        
+			 </LinearLayout> 
+		        <LinearLayout
+					android:id="@+id/music_control_layout_group"
+			       android:layout_width="148dp"
+			       android:layout_height="148dp"
+			       android:orientation="vertical"
+			       android:gravity="center_horizontal"
+			       android:background="@drawable/bottom_panel_child_view_background">
+			       <TextView
+			            android:id="@+id/music_text"	            
+			            android:layout_width="match_parent"
+			            android:layout_height="wrap_content" 
+			            android:gravity="center"
+			            android:layout_marginTop="25dip"
+			            android:layout_marginBottom="20dip"
+			            android:textColor="#fff"
+			            android:textSize="14sp"
+			            android:maxEms="1"       
+			            android:text="@string/iphone_music_text" />
+			       <LinearLayout
+				        android:id="@+id/music_control_layout"
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:layout_marginTop="5dip"
+				        android:gravity="center"
+				        android:paddingBottom="5dip"
+				        android:paddingTop="5dip" >
+				
+				        <ImageButton
+				            android:id="@+id/music_backward_btn"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:layout_marginRight="6dp"
+				            android:src="@drawable/iphone_music_backward"
+				            android:background="#00000000"/>   
+				
+				        <ImageView
+				            android:id="@+id/music_play_btn"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:src="@drawable/iphone_music_play" />  
+				
+				        <ImageButton
+				            android:id="@+id/music_forward_btn"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:layout_marginLeft="6dp"
+				            android:src="@drawable/iphone_music_forward" 
+				            android:background="#00000000"/>
+			        </LinearLayout> 	         
+			    </LinearLayout> 
+		    </LinearLayout>
+		<LinearLayout
+		        android:id="@+id/second_row"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="25dp"
+		        android:layout_marginRight="25dp"
+		        android:layout_marginBottom="@dimen/control_center_child_view_spacing"
+		        android:orientation="horizontal">
+		        <LinearLayout 
+			       android:layout_width="148dp"
+			       android:layout_height="148dp"
+			       android:orientation="vertical"
+			       android:layout_marginRight="@dimen/control_center_child_view_spacing">
+			        <LinearLayout 
+				       android:layout_width="match_parent"
+				       android:layout_height="wrap_content"
+				       android:layout_marginBottom="@dimen/control_center_child_view_spacing"
+				       android:orientation="horizontal">
+				       <ImageView
+				            android:id="@+id/rotation_iv"
+				            android:layout_width="@dimen/control_center_child_view_width"
+				            android:layout_height="@dimen/control_center_child_view_width"
+				            android:layout_marginRight="@dimen/control_center_child_view_spacing"
+				            android:src="@drawable/iphone_rotation_off" />
+				       <ImageView
+				            android:id="@+id/disturbance_iv"
+				            android:layout_width="@dimen/control_center_child_view_width"
+				            android:layout_height="@dimen/control_center_child_view_width"		            
+				            android:src="@drawable/iphone_disturbance_off" /> 	        
+				    </LinearLayout> 
+			        <RelativeLayout
+			              android:id="@+id/airplay_layout"
+				       android:layout_width="match_parent"
+				       android:layout_height="@dimen/control_center_child_view_width"
+				       android:background="@drawable/bottom_panel_child_view_background">
+				       <ImageView
+				            android:id="@+id/airplay_icon"
+				            android:layout_width="@dimen/control_center_child_view_width"
+				            android:layout_height="@dimen/control_center_child_view_width"
+				            android:layout_marginLeft="5dip"
+				            android:src="@drawable/iphone_airplay" />
+		
+			               <TextView
+			                   android:id="@+id/airplay_text"
+				            android:layout_width="56dp"
+				            android:layout_height="wrap_content"
+				            android:layout_marginLeft="60dip"
+				            android:layout_centerVertical="true"
+				            android:textColor="#fff"
+				            android:textSize="12sp"
+				            android:maxEms="1"       
+				            android:text="@string/iphone_airplay_text" /> 	        
+				    </RelativeLayout> 	        
+			    </LinearLayout> 
+		           <LinearLayout  
+			       android:layout_width="148dp"
+			       android:layout_height="148dp"
+			       android:orientation="horizontal">
+			       <RelativeLayout
+				        android:id="@+id/brightness_control_view_group"
+				        android:layout_width="@dimen/control_center_child_view_width"
+				        android:layout_height="match_parent"
+				        android:layout_marginRight="@dimen/control_center_child_view_spacing">
+				
+				        <com.android.systemui.statusbar.phone.VerticalSeekBar
+					        android:id="@+id/brightness_seek_bar"
+					        android:layout_width="@dimen/control_center_child_view_width"
+					        android:layout_height="match_parent"
+					        android:minHeight="@dimen/control_center_child_view_width"
+					        android:maxHeight="@dimen/control_center_child_view_width"
+					        android:padding="0dp"
+					        android:thumb="@null"
+					        android:progressDrawable="@drawable/vertical_seekbar_progress"
+					        
+			                      android:max="100"
+			                      android:thumbOffset="1dp"/><!--@drawable/see_bar-->
+				         <ImageView
+				                android:id="@+id/brightness_values"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_centerHorizontal="true"
+					        android:layout_alignParentBottom="true"
+					        android:layout_marginBottom="20dp"
+					        android:src="@drawable/brightness_values_alpha"
+				             /> 			        
+			        </RelativeLayout> 
+			        <RelativeLayout
+				        android:id="@+id/volume_control_view_group"
+				        android:layout_width="@dimen/control_center_child_view_width"
+				        android:layout_height="match_parent"
+				        >
+				
+				        <com.android.systemui.statusbar.phone.VerticalSeekBar
+					        android:id="@+id/volume_seek_bar"
+					        android:layout_width="@dimen/control_center_child_view_width"
+					        android:layout_height="match_parent"
+					        android:minHeight="@dimen/control_center_child_view_width"
+					        android:maxHeight="@dimen/control_center_child_view_width"
+					        android:padding="0dp"
+					        android:thumb="@null"
+					        android:progressDrawable="@drawable/vertical_seekbar_progress"
+					        android:progress="20"
+				                android:max="100"
+				                android:thumbOffset="1dp"/>
+				        <ImageView
+				               android:id="@+id/volume_values"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_centerHorizontal="true"
+					        android:layout_alignParentBottom="true"
+					        android:layout_marginBottom="20dp"
+					        android:src="@drawable/music_volume_alpha"
+				             />   			        
+			        </RelativeLayout> 	        
+			    </LinearLayout>
+		    </LinearLayout>
+		    <com.android.systemui.statusbar.phone.LineBreakLayout
+		        android:id="@+id/child_view_group" 
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="25dp"
+		        android:layout_marginRight="25dp">
+		        
+		    </com.android.systemui.statusbar.phone.LineBreakLayout>
+	     </LinearLayout>
+        </com.android.systemui.statusbar.phone.ScrollViewExtend>
+        <include
+             android:id="@+id/force_touch_view_group"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:visibility="gone"
+             layout="@layout/force_touch_control_center"/>
+    </RelativeLayout>
+</LinearLayout>

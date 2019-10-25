@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/calculator_control_force_touch_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="31dp"
+    android:layout_marginRight="31dp"
+    android:layout_centerInParent="true"
+    android:gravity="center"
+    android:orientation="vertical" 
+    android:visibility="gone"
+    android:background="@drawable/bottom_panel_force_touch_view_background">
+    <ImageView
+        android:id="@+id/force_touch_calculator_icon" 
+        android:layout_width="22dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/force_touch_calculator_icon"/>
+    <TextView	            
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15sp"      
+        android:text="@string/control_center_force_touch_calculator" />
+    <View
+        android:layout_height="1px"
+        android:layout_width="match_parent"
+        android:background="#fff"/>
+    <TextView
+        android:id="@+id/force_touch_calculator_copy"	            
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15sp"      
+        android:text="@string/control_center_force_touch_calculator_copy" />
+     
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone">
+    <include 
+        layout="@layout/force_touch_network_group"/>
+    <include 
+        layout="@layout/force_touch_music_control"/>
+    <include 
+        layout="@layout/force_touch_screen_mirroring"/>
+    <include 
+        layout="@layout/force_touch_brightness"/>
+    <include 
+        layout="@layout/force_touch_volume"/>
+    <include 
+        layout="@layout/force_touch_flashlight"/>
+    <include 
+        layout="@layout/force_touch_timer"/>
+    <include 
+        layout="@layout/force_touch_calculator"/>    
+    <include 
+        layout="@layout/force_touch_camera"/> 
+</RelativeLayout>

@@ -1,0 +1,48 @@
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dip">
+        <LinearLayout
+               android:id="@+id/date_and_lunar_view"
+              android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+        
+	        <LinearLayout 
+	                android:id = "@+id/keyguard_status_area_id"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content">
+	            <include layout="@layout/keyguard_status_area" />
+	        </LinearLayout> 
+	        <LinearLayout android:id = "@+id/keyguard_status_area_lunar"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:gravity="center">
+	                <TextView android:id="@+id/lunar_view"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textColor="@color/clock_white"
+
+			        android:gravity="center"
+			        android:textSize="14sp" 
+			        /><!--modified from 16sp by cfb-->
+	        </LinearLayout>
+	 </LinearLayout>       
+        <LinearLayout android:id = "@+id/keyguard_status_area_battery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:visibility="invisible">
+                <TextView android:id="@+id/battery_text"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/clock_white"
+
+		        android:gravity="center"
+		        android:textSize="20sp" 
+		        />
+        </LinearLayout>
+</RelativeLayout> 
+

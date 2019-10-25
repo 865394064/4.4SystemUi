@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/timer_control_force_touch_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="31dp"
+    android:layout_marginRight="31dp"
+    android:layout_centerInParent="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone"
+    >
+    <TextView
+        android:id="@+id/force_touch_timer_set_timer_for"	            
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15sp"      
+        android:text="@string/control_center_force_touch_set_timer_for" /> 
+    <TextView
+        android:id="@+id/force_touch_timer_set_time"	            
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="22sp"      
+        android:text="@string/control_center_force_touch_set_timer_for" />         
+    <com.android.systemui.statusbar.phone.VerticalSeekBar
+      android:id="@+id/force_touch_timer_seek_bar"
+      android:layout_width="122dp"
+      android:layout_height="296dp"
+      android:layout_centerInParent="true"
+      android:minHeight="122dp"
+      android:maxHeight="122dp"
+      android:padding="0dp"
+      android:thumb="@null"
+      android:progressDrawable="@drawable/force_touch_timer_seekbar_progress"
+      android:progress="0"
+      android:max="12"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">  
+	    <Button 
+	      android:id="@+id/force_touch_timer_start_btn"	            
+	      android:layout_width="72dp"
+	      android:layout_height="72dp"
+	      android:layout_centerInParent="true"
+	      android:background="@drawable/force_touch_timer_start_btn_background"
+	      android:padding="0dp"
+	      android:textColor="#fff"
+	      android:text="@string/control_center_force_touch_timer_start" />
+	    <Button 
+	      android:id="@+id/force_touch_timer_pause_or_restart"	            
+	      android:layout_width="72dp"
+	      android:layout_height="72dp"
+	      android:layout_centerInParent="true"
+	      android:background="@drawable/force_touch_timer_pause_btn_background"
+	      android:padding="0dp"
+	      android:textColor="#fff"
+	      android:text="@string/control_center_force_touch_timer_pause" />  
+    </RelativeLayout>  
+</LinearLayout>
